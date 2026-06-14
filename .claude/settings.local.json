@@ -25,7 +25,9 @@
       "Bash(node shot.mjs)",
       "Bash(node harness.mjs)",
       "Bash(node -e \"const t=setInterval\\(async\\(\\)=>{try{const r=await fetch\\('http://localhost:3000'\\);if\\(r.ok\\){console.log\\('UP'\\);clearInterval\\(t\\);process.exit\\(0\\)}}catch{}},1000\\);setTimeout\\(\\(\\)=>{console.log\\('timeout'\\);process.exit\\(1\\)},60000\\)\")",
-      "Bash(node -e \"const t=setInterval\\(async\\(\\)=>{try{const r=await fetch\\('http://localhost:3000'\\);if\\(r.ok\\){console.log\\('UP'\\);clearInterval\\(t\\);process.exit\\(0\\)}}catch{}},1000\\);setTimeout\\(\\(\\)=>process.exit\\(1\\),60000\\)\")"
+      "Bash(node -e \"const t=setInterval\\(async\\(\\)=>{try{const r=await fetch\\('http://localhost:3000'\\);if\\(r.ok\\){console.log\\('UP'\\);clearInterval\\(t\\);process.exit\\(0\\)}}catch{}},1000\\);setTimeout\\(\\(\\)=>process.exit\\(1\\),60000\\)\")",
+      "Bash(git config *)",
+      "Bash(cmdkey /list)"
     ]
   }
 }
