@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(PORT=3940 node node_modules/next/dist/bin/next dev -p 3940)",
+      "Bash(echo \"launched pid $!\")",
+      "Bash(node shot.mjs http://localhost:3000 hero.png)",
+      "Bash(node shot.mjs http://localhost:3000 full.png full)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(node shot.mjs http://localhost:3000 s-top.png 0)",
+      "Bash(node shot.mjs http://localhost:3000 s-about.png 820)",
+      "Bash(node shot.mjs http://localhost:3000 s-founder.png 1700)",
+      "Bash(node probe.mjs)",
+      "Bash(grep -oE '\\\\-\\\\-ink:|--navy:|--text:#1B2B4A|--paper:|--font-fraunces|--font-rajdhani|hero-h1\\\\{[^}]{0,60}')",
+      "Bash(taskkill //PID 24512 //F)",
+      "Bash(taskkill //IM node.exe //F)",
+      "Bash(echo \"next removed: $?\")",
+      "Bash(node node_modules/next/dist/bin/next dev -p 3000)",
+      "Bash(echo \"pid $!\")",
+      "Bash(node shot.mjs http://localhost:3000 v-top.png 0)",
+      "Bash(node shot.mjs http://localhost:3000 v-about.png 900)",
+      "Bash(node shot.mjs http://localhost:3000 v-rtr.png 3100)",
+      "Bash(node shot.mjs http://localhost:3000 v-fnd.png 2550)",
+      "Bash(node shot.mjs http://localhost:3000 v-fnd2.png 2550)",
+      "Bash(npm rm *)",
+      "Bash(node shot.mjs)",
+      "Bash(node harness.mjs)",
+      "Bash(node -e \"const t=setInterval\\(async\\(\\)=>{try{const r=await fetch\\('http://localhost:3000'\\);if\\(r.ok\\){console.log\\('UP'\\);clearInterval\\(t\\);process.exit\\(0\\)}}catch{}},1000\\);setTimeout\\(\\(\\)=>{console.log\\('timeout'\\);process.exit\\(1\\)},60000\\)\")",
+      "Bash(node -e \"const t=setInterval\\(async\\(\\)=>{try{const r=await fetch\\('http://localhost:3000'\\);if\\(r.ok\\){console.log\\('UP'\\);clearInterval\\(t\\);process.exit\\(0\\)}}catch{}},1000\\);setTimeout\\(\\(\\)=>process.exit\\(1\\),60000\\)\")"
+    ]
+  }
+}
