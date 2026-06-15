@@ -2,8 +2,10 @@ import SiteNav from "@/components/SiteNav";
 import Hero from "@/components/Hero";
 import GovtStrip from "@/components/GovtStrip";
 import About from "@/components/About";
+import CoFounder from "@/components/CoFounder";
 import Founder from "@/components/Founder";
 import RTR from "@/components/RTR";
+import MaharashtraStrategy from "@/components/MaharashtraStrategy";
 import Economy from "@/components/Economy";
 import Emergency from "@/components/Emergency";
 import RoadSafety from "@/components/RoadSafety";
@@ -19,8 +21,10 @@ export default function Home() {
       <Hero />
       <GovtStrip />
       <About />
+      <CoFounder />
       <Founder />
       <RTR />
+      <MaharashtraStrategy />
       <Economy />
       <Emergency />
       <RoadSafety />

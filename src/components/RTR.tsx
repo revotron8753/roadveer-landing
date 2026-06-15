@@ -23,7 +23,7 @@ export default function RTR() {
         <div className="rtr-in">
           <div>
             <div className="shead" style={{ marginBottom: 0 }}>
-              <span className="idx">03 — RTR Network</span>
+              <span className="idx">04 — RTR Network</span>
               <span className="eyebrow on-ink">Roadveer Tiger Rakshaks</span>
               <h2 className="stitle">
                 Join India&rsquo;s largest highway volunteer network

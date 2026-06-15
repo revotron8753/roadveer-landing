@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const PLATFORM = [
   { href: "#rtr", label: "RTR Volunteer Network" },
   { href: "#vendor", label: "Vendor Registration" },
@@ -54,8 +56,14 @@ export default function Footer() {
       <div className="foot-in">
         <div className="foot-top">
           <div className="foot-brand">
-            <div className="foot-mark">
-              Road<em>veer</em>
+            <div className="foot-logo">
+              <Image
+                src="/logo.png"
+                alt="Tiger Roadveer"
+                width={1891}
+                height={832}
+                className="foot-logo-img"
+              />
             </div>
             <p>
               Driver Ka Saathi · Highway Ka Dost. Building for those who keep
@@ -90,10 +98,19 @@ export default function Footer() {
             © 2025 Roadveer. Roadveer Road Safety &amp; Welfare Foundation
             (Section 8 Company, MCA Registered).
           </p>
-          <p>
-            Kolhapur, Maharashtra · All India Operations · Aligned with MoRTH
-            &amp; NHAI National Road Safety Mission
-          </p>
+          <div className="foot-natl">
+            <Image
+              src="/indian-flag.png"
+              alt="Flag of India"
+              width={1536}
+              height={1024}
+              className="foot-flag"
+            />
+            <p>
+              Kolhapur, Maharashtra · All India Operations · Aligned with MoRTH
+              &amp; NHAI National Road Safety Mission
+            </p>
+          </div>
         </div>
       </div>
     </footer>

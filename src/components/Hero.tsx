@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const STATS = [
-  { num: "5", acc: "L+", label: "Drivers" },
-  { num: "1", acc: "L", label: "RTR Target" },
-  { num: "50", acc: "K", label: "Vendors" },
-  { num: "200", acc: "+", label: "Ambulances" },
+  { num: "50", acc: "L+", label: "Drivers" },
+  { num: "5", acc: "L", label: "RTR Target" },
+  { num: "2", acc: "L", label: "Vendors" },
+  { num: "1", acc: "K+", label: "Ambulances" },
 ];
 
 export default function Hero() {
@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="wrap">
         <div className="hero-in">
           <div className="hero-copy">
-            <span className="eyebrow">India&rsquo;s Highway Economy Platform</span>
+            <span className="eyebrow">A National Mission · India&rsquo;s Highway Economy Platform</span>
             <h1 className="hero-h1">
               Building for those who keep India <em>moving.</em>
             </h1>

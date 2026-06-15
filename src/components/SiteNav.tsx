@@ -1,14 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const LINKS = [
   { href: "#about", label: "Mission", mobile: "Mission" },
+  { href: "#cofounder", label: "Leadership", mobile: "Co-Founder" },
   { href: "#farukh", label: "Founder", mobile: "Founder Story" },
-  { href: "#rtr", label: "RTR Network", mobile: "RTR Network" },
+  { href: "#rtr", label: "RTR", mobile: "RTR Network" },
+  { href: "#maharashtra", label: "Maharashtra", mobile: "Maharashtra Strategy" },
   { href: "#economy", label: "Economy", mobile: "Highway Economy" },
   { href: "#emergency", label: "Emergency", mobile: "Emergency Response" },
-  { href: "#nhai", label: "Road Safety", mobile: "Road Safety" },
+  { href: "#nhai", label: "Safety", mobile: "Road Safety" },
   { href: "#vendor", label: "Vendors", mobile: "Vendor Network" },
 ];
 
@@ -38,8 +41,15 @@ export default function SiteNav() {
     <>
       <header className="nv">
         <div className="nv-in">
-          <a href="#hero" className="nv-mark">
-            Road<em>veer</em>
+          <a href="#hero" className="nv-mark" aria-label="Tiger Roadveer — home">
+            <Image
+              src="/logo.png"
+              alt="Tiger Roadveer"
+              width={1891}
+              height={832}
+              priority
+              className="nv-logo"
+            />
           </a>
           <nav className="nv-links">
             {LINKS.map((l) => (

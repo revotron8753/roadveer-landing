@@ -1,7 +1,34 @@
+const PILLARS = [
+  {
+    name: "Driver Economy",
+    desc: "FASTag, insurance, health access, credit and 100+ earning streams for every driver on the highway.",
+  },
+  {
+    name: "Highway Economy",
+    desc: "A single connected marketplace across every national highway — vendors, logistics, services and welfare.",
+  },
+  {
+    name: "Hero Product",
+    desc: "The Roadveer app — the flagship platform that powers the entire highway ecosystem end to end.",
+  },
+  {
+    name: "Service Providers",
+    desc: "Verified mechanics, dhabas, tyre shops, towing and roadside services earning through driver traffic.",
+  },
+  {
+    name: "Electric",
+    desc: "EV charging, e-mobility, CNG and Bio-CNG green-energy infrastructure for a clean highway future.",
+  },
+  {
+    name: "Gadi",
+    desc: "Vehicle services for every gadi — repair, fitment, towing, fitness, insurance and resale.",
+  },
+];
+
 const CARDS = [
   {
     name: "Driver Economy",
-    desc: "FASTag, insurance, health access, financial services and earning opportunities for 50 lakh+ drivers on national highways.",
+    desc: "FASTag, insurance, health access, financial services and earning opportunities for drivers on national highways.",
     tags: ["FASTag", "Insurance", "Health Access", "Financial Services"],
   },
   {
@@ -21,7 +48,7 @@ const CARDS = [
   },
   {
     name: "Emergency Economy",
-    desc: "200+ ambulances, doctors, lawyers and emergency responders earning through the Roadveer emergency response network.",
+    desc: "1,000+ ambulances, doctors, lawyers and emergency responders earning through the Roadveer emergency response network.",
     tags: ["Ambulances", "Doctors", "Lawyers", "Emergency"],
   },
   {
@@ -32,12 +59,14 @@ const CARDS = [
 ];
 
 const VISION = [
-  { n: "5,00,000+", t: "Drivers" },
-  { n: "1,00,000", t: "RTR Volunteers" },
-  { n: "50,000", t: "Verified Vendors" },
-  { n: "200+", t: "Ambulances" },
-  { n: "100+", t: "Earning Streams" },
-  { n: "—", t: "Hospital Network" },
+  { n: "50,00,000+", t: "Drivers Empowered" },
+  { n: "5,00,000+", t: "RTR Volunteers" },
+  { n: "2,00,000+", t: "Verified Vendors" },
+  { n: "1,46,000 km", t: "National Highways" },
+  { n: "1,00,000+", t: "Blood Donors" },
+  { n: "1,000+", t: "Ambulances" },
+  { n: "250+", t: "Earning Streams" },
+  { n: "5,000+", t: "Hospital Network" },
 ];
 
 export default function Economy() {
@@ -45,17 +74,28 @@ export default function Economy() {
     <section id="economy">
       <div className="wrap">
         <div className="shead">
-          <span className="idx">04 — Highway Economy</span>
+          <span className="idx">06 — Highway Economy</span>
           <h2 className="stitle">
-            100+ earning opportunities across India&rsquo;s highways
+            Six pillars of India&rsquo;s <em>highway economy</em>
           </h2>
           <p className="slede">
             Every participant in the Roadveer ecosystem can earn. From drivers to
-            mechanics, RTR volunteers to logistics providers &mdash; the highway
-            economy creates sustainable livelihoods.
+            mechanics, RTR volunteers to logistics providers — these pillars turn
+            the national highway into a living economy.
           </p>
         </div>
 
+        <div className="pillars">
+          {PILLARS.map((p, i) => (
+            <div className="pillar" key={p.name}>
+              <span className="pn">{String(i + 1).padStart(2, "0")}</span>
+              <div className="pname">{p.name}</div>
+              <p className="pdesc">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="econ-subhead">The economy in detail</div>
         <ul className="econ-list">
           {CARDS.map((c, i) => (
             <li className="econ-row" key={c.name}>

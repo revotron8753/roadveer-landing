@@ -106,16 +106,17 @@ section{padding:118px 0;position:relative}
 .nv{position:fixed;top:0;left:0;right:0;z-index:1000;
   background:rgba(245,241,232,.86);backdrop-filter:blur(14px) saturate(1.2);
   border-bottom:1px solid var(--line)}
+.nv::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#FF9933 0 33.33%,#ffffff 33.33% 66.66%,#138808 66.66% 100%)}
 .nv-in{max-width:1180px;margin:0 auto;padding:0 40px;height:72px;
   display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nv-mark{font-family:var(--font-montserrat),sans-serif;font-size:23px;font-weight:600;
-  letter-spacing:.01em;color:var(--ink);text-decoration:none}
-.nv-mark em{font-style:italic;color:var(--accent)}
+.nv-mark{display:flex;align-items:center;text-decoration:none;flex:none}
+.nv-logo{height:54px;width:auto;display:block}
 .nv-links{display:flex;gap:2px;align-items:center}
-.nv-links a{color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:500;
-  padding:8px 13px;transition:color .2s;position:relative}
+.nv-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;
+  padding:7px 10px;transition:color .2s;position:relative;white-space:nowrap}
 .nv-links a:hover,.nv-links a.active{color:var(--ink)}
-.nv-links a.active::after{content:"";position:absolute;left:13px;right:13px;bottom:2px;
+.nv-links a.active::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;
   height:1px;background:var(--accent)}
 .nv-actions{display:flex;align-items:center;gap:16px}
 .nv-actions .lnk{font-size:13.5px;border-bottom-color:var(--line)}
@@ -174,16 +175,21 @@ section{padding:118px 0;position:relative}
 .hstat-l{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
   color:var(--muted);margin-top:10px}
 
-/* ===================== ALIGNED / GOVT STRIP ===================== */
-.aligned{border-bottom:1px solid var(--line);padding:28px 0}
-.aligned-in{max-width:1180px;margin:0 auto;padding:0 40px;
-  display:flex;align-items:center;gap:34px;flex-wrap:wrap}
-.aligned-l{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--muted);white-space:nowrap}
-.aligned-list{display:flex;flex-wrap:wrap;gap:6px 28px;align-items:center}
-.aligned-list a{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none;
+/* ===================== NATIONAL ALIGNMENT BAND ===================== */
+.natl{background:var(--ink);color:var(--paper);border-bottom:1px solid var(--ink)}
+.natl-in{max-width:1180px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;
+  justify-content:space-between;gap:28px 40px;flex-wrap:wrap}
+.natl-lead{display:flex;align-items:center;gap:16px}
+.natl-flag{width:52px;height:35px;flex:none;display:block;object-fit:cover;
+  border:1px solid rgba(255,255,255,.3);box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.natl-lead strong{display:block;font-size:13.5px;font-weight:700;letter-spacing:.01em;color:var(--paper)}
+.natl-lead span{font-size:12.5px;color:var(--muted-d);line-height:1.45}
+.natl-orgs{display:flex;align-items:center;gap:6px 22px;flex-wrap:wrap}
+.natl-l{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted-d);white-space:nowrap}
+.natl-orgs a{font-size:13.5px;font-weight:500;color:var(--paper);text-decoration:none;
   transition:color .2s;white-space:nowrap}
-.aligned-list a:hover{color:var(--accent)}
+.natl-orgs a:hover{color:var(--accent)}
 
 /* ===================== ABOUT / MISSION ===================== */
 #about{background:var(--paper)}
@@ -208,6 +214,38 @@ section{padding:118px 0;position:relative}
 .belief p{font-family:var(--font-montserrat),sans-serif;font-size:23px;line-height:1.45;
   color:var(--ink);font-weight:500}
 .belief p strong{color:var(--accent);font-weight:500}
+
+/* ===================== CO-FOUNDER (highlight) ===================== */
+#cofounder{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%);
+  border-top:1px solid var(--line);position:relative}
+#cofounder::before{content:"";position:absolute;top:-1px;left:0;right:0;height:3px;background:var(--accent)}
+.cof-in{display:grid;grid-template-columns:460px 1fr;gap:84px;align-items:start}
+.cof-aside{position:sticky;top:104px}
+.cof-photo{position:relative}
+.cof-photo::before{content:"";position:absolute;inset:22px -22px -22px 22px;
+  background:var(--accent);opacity:.14;z-index:0}
+.cof-photo .frame{position:relative;z-index:1;aspect-ratio:1/1;overflow:hidden;
+  background:#fff;border:1px solid var(--line)}
+.cof-photo .frame img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.cof-plate{position:relative;z-index:1;background:var(--ink);color:var(--paper);
+  padding:24px 26px;border:1px solid var(--ink)}
+.cof-plate .nm{font-family:var(--font-montserrat),sans-serif;font-size:23px;font-weight:700;
+  letter-spacing:-.01em}
+.cof-plate .rl{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);margin-top:7px}
+.cof-plate .sb{font-size:12.5px;color:var(--muted-d);margin-top:9px}
+.cof-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.cof-tag{font-size:11.5px;font-weight:600;color:var(--accent);border:1px solid var(--accent);
+  padding:6px 13px;letter-spacing:.02em}
+.cof-lede{font-size:17.5px;color:var(--muted);line-height:1.75;margin:0 0 34px;max-width:620px}
+.cof-rows{border-top:1px solid var(--line)}
+.cof-row{display:grid;grid-template-columns:190px 1fr;gap:28px;padding:20px 0;
+  border-bottom:1px solid var(--line)}
+.cof-row dt{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);padding-top:3px}
+.cof-row dd{font-size:15.5px;color:var(--ink);line-height:1.65}
+.cof-quote{margin-top:34px;background:var(--ink);color:var(--paper);padding:30px 36px;
+  border-left:3px solid var(--accent);font-size:18px;line-height:1.6;font-style:italic}
 
 /* ===================== FOUNDER ===================== */
 #farukh{background:var(--paper-2);border-top:1px solid var(--line)}
@@ -267,8 +305,49 @@ section{padding:118px 0;position:relative}
 .cert{border:1px solid var(--line-d);padding:12px 8px;text-align:center;
   font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--paper)}
 
+/* ===================== MAHARASHTRA STRATEGY ===================== */
+#maharashtra{background:var(--paper);border-top:1px solid var(--line)}
+.mh-in{display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start}
+.ladder{list-style:none;border-top:1px solid var(--line)}
+.ladder li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:24px 0;
+  border-bottom:1px solid var(--line);align-items:baseline}
+.ld-stage{font-family:var(--font-montserrat),sans-serif;font-size:20px;font-weight:700;
+  color:var(--accent);letter-spacing:-.01em}
+.ld-body strong{display:block;font-size:16.5px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.ld-body span{font-size:14px;color:var(--muted);line-height:1.6}
+.mh-side{position:sticky;top:104px}
+.mhrcdc-card{background:var(--ink);color:var(--paper);padding:34px;border:1px solid var(--ink);
+  position:relative;overflow:hidden}
+.mhrcdc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#FF9933 0 33.33%,#ffffff 33.33% 66.66%,#138808 66.66% 100%)}
+.mhrcdc-card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.mhrcdc-card h3{font-family:var(--font-montserrat),sans-serif;font-size:clamp(38px,5vw,54px);
+  font-weight:700;line-height:1;letter-spacing:-.02em}
+.mhrcdc-card .sub{font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--accent);
+  margin-top:10px;line-height:1.4}
+.mhrcdc-card p{font-size:13.5px;color:var(--muted-d);line-height:1.7;margin-top:16px}
+.mh-stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);
+  border-left:1px solid var(--line);margin-top:18px}
+.mh-stat{padding:18px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mh-stat b{display:block;font-family:var(--font-montserrat),sans-serif;font-size:22px;
+  font-weight:700;color:var(--ink);line-height:1.1;letter-spacing:-.01em}
+.mh-stat span{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);margin-top:6px;display:block}
+
 /* ===================== HIGHWAY ECONOMY ===================== */
 #economy{background:var(--paper)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);
+  border-left:1px solid var(--line);margin-bottom:72px}
+.pillar{padding:30px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--paper);transition:background .2s}
+.pillar:hover{background:var(--card)}
+.pillar .pn{font-family:var(--font-montserrat),sans-serif;font-size:13px;font-weight:700;
+  color:var(--accent);letter-spacing:.04em}
+.pillar .pname{font-size:21px;font-weight:700;color:var(--ink);margin:12px 0 9px;letter-spacing:-.01em}
+.pillar .pdesc{font-size:13.5px;color:var(--muted);line-height:1.65}
+.econ-subhead{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px}
 .econ-list{list-style:none;border-top:1px solid var(--line)}
 .econ-row{display:grid;grid-template-columns:64px 1.1fr 1.5fr;gap:28px;align-items:start;
   padding:30px 0;border-bottom:1px solid var(--line);transition:padding-left .25s}
@@ -312,6 +391,29 @@ section{padding:118px 0;position:relative}
 
 /* ===================== ROAD SAFETY / NHAI ===================== */
 #nhai{background:var(--paper)}
+.morth-apex{display:grid;grid-template-columns:1.25fr 1fr;gap:52px;align-items:center;
+  background:var(--ink);color:var(--paper);padding:48px 52px;border:1px solid var(--ink);
+  text-decoration:none;position:relative;overflow:hidden}
+.morth-apex::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#FF9933 0 33.33%,#ffffff 33.33% 66.66%,#138808 66.66% 100%)}
+.ma-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.morth-apex h3{font-family:var(--font-montserrat),sans-serif;font-size:clamp(46px,7vw,72px);
+  font-weight:700;line-height:1;letter-spacing:-.02em}
+.ma-sub{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--paper);margin-top:10px}
+.ma-desc{font-size:14.5px;color:var(--muted-d);line-height:1.7;margin:18px 0 20px;max-width:440px}
+.ma-link{font-size:13px;font-weight:600;color:var(--paper);border-bottom:1px solid var(--accent);
+  padding-bottom:3px;transition:color .2s}
+.morth-apex:hover .ma-link{color:var(--accent)}
+.ma-facts{list-style:none;border-top:1px solid var(--line-d)}
+.ma-facts li{font-size:13.5px;color:var(--paper);padding:13px 0 13px 22px;position:relative;
+  border-bottom:1px solid var(--line-d);line-height:1.5}
+.ma-facts li::before{content:"";position:absolute;left:0;top:19px;width:9px;height:9px;
+  background:var(--accent)}
+.hier-label{display:flex;align-items:center;gap:16px;margin:0 0 0;padding:30px 0 22px}
+.hier-label::before{content:"";width:1px;height:30px;background:var(--line);margin-left:26px}
+.hier-label span{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted)}
 .gov-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);
   border-left:1px solid var(--line)}
 .gov-card{padding:30px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
@@ -326,13 +428,13 @@ section{padding:118px 0;position:relative}
 .gov-card:hover .lk{color:var(--accent);border-color:var(--accent)}
 .assoc-h{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:var(--muted);margin:48px 0 18px}
-.assoc-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);
-  border-left:1px solid var(--line)}
-.assoc-card{padding:18px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  text-decoration:none;display:block;transition:background .2s}
-.assoc-card:hover{background:var(--card)}
-.assoc-name{font-size:14px;font-weight:600;color:var(--ink)}
-.assoc-url{font-size:12px;color:var(--muted);margin-top:3px}
+.assoc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.assoc-card{padding:24px 26px;border:1px solid var(--line);background:var(--card);
+  text-decoration:none;display:block;transition:border-color .2s,transform .2s,box-shadow .2s}
+.assoc-card:hover{border-color:var(--accent);transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(21,23,28,.08)}
+.assoc-name{font-size:15px;font-weight:600;color:var(--ink)}
+.assoc-url{font-size:12.5px;color:var(--muted);margin-top:4px}
 
 /* ===================== VENDOR ===================== */
 #vendor{background:var(--paper-2);border-top:1px solid var(--line)}
@@ -400,8 +502,8 @@ section{padding:118px 0;position:relative}
 .foot-in{max-width:1180px;margin:0 auto;padding:0 40px}
 .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;
   padding-bottom:48px;border-bottom:1px solid var(--line-d)}
-.foot-mark{font-family:var(--font-montserrat),sans-serif;font-size:24px;font-weight:600}
-.foot-mark em{font-style:italic;color:var(--accent)}
+.foot-logo{display:inline-block;background:#fff;padding:12px 16px;border-radius:6px}
+.foot-logo-img{height:40px;width:auto;display:block}
 .foot-brand p{font-size:13.5px;color:var(--muted-d);line-height:1.7;margin:16px 0 22px;max-width:280px}
 .foot-social{display:flex;gap:10px}
 .foot-social a{width:38px;height:38px;border:1px solid var(--line-d);display:flex;
@@ -416,15 +518,20 @@ section{padding:118px 0;position:relative}
 .foot-bottom{padding-top:28px;display:flex;align-items:center;justify-content:space-between;
   gap:18px;flex-wrap:wrap}
 .foot-bottom p{font-size:12px;color:var(--muted-d)}
+.foot-natl{display:flex;align-items:center;gap:12px}
+.foot-flag{width:32px;height:auto;flex:none;display:block;border:1px solid var(--line-d)}
 
 /* ===================== RESPONSIVE ===================== */
 @media(max-width:1024px){
   .hero-in{grid-template-columns:1fr;gap:48px}
   .hero-figure{max-width:440px}
   .hero-acts{padding-bottom:48px}
-  .about-in,.founder-in,.rtr-in,.emg-in,.contact-in,.vision{grid-template-columns:1fr;gap:48px}
-  .founder-aside{position:static;max-width:420px}
-  .gov-grid{grid-template-columns:repeat(2,1fr)}
+  .about-in,.cof-in,.founder-in,.rtr-in,.emg-in,.contact-in,.vision,.morth-apex,.mh-in{grid-template-columns:1fr;gap:40px}
+  .mh-side{position:static}
+  .founder-aside,.cof-aside{position:static}
+  .cof-aside{max-width:460px}
+  .founder-aside{max-width:420px}
+  .gov-grid,.pillars{grid-template-columns:repeat(2,1fr)}
   .assoc-grid,.vend-cats{grid-template-columns:repeat(2,1fr)}
   .vj-steps{grid-template-columns:1fr 1fr}
   .vj-step{border-bottom:1px solid var(--line)}
@@ -443,8 +550,12 @@ section{padding:118px 0;position:relative}
   .econ-row{grid-template-columns:1fr;gap:10px}
   .econ-n{padding-top:0}
   .vision{padding:34px 26px}
+  .morth-apex{padding:32px 26px}
   .vision-list{grid-template-columns:1fr}
-  .gov-grid,.assoc-grid,.vend-cats,.emg-cards,.vj-steps,.form-row{grid-template-columns:1fr}
+  .gov-grid,.assoc-grid,.vend-cats,.emg-cards,.vj-steps,.form-row,.pillars{grid-template-columns:1fr}
+  .cof-row{grid-template-columns:1fr;gap:6px}
+  .cof-photo::before{inset:14px -14px -14px 14px}
+  .ladder li{grid-template-columns:90px 1fr;gap:16px}
   .emg-cards .ec{border-right:none}
   .vc{border-right:none}
   .eco-list{columns:1}

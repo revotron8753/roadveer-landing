@@ -1,11 +1,11 @@
 const CARDS = [
   {
     title: "Ambulance Network",
-    desc: "200+ registered ambulances across Maharashtra's highway network",
+    desc: "1,000+ registered ambulances across the national highway network",
   },
   {
     title: "Blood Donor Network",
-    desc: "RTR volunteers registered as emergency blood donors across districts",
+    desc: "1,00,000+ RTR volunteers registered as emergency blood donors across districts",
   },
   {
     title: "Hospital Referral",
@@ -49,7 +49,7 @@ export default function Emergency() {
     <section id="emergency">
       <div className="wrap">
         <div className="shead">
-          <span className="idx">05 — Emergency Response</span>
+          <span className="idx">07 — Emergency Response</span>
           <span className="eyebrow">24 × 7 Emergency Response</span>
           <h2 className="stitle">
             Golden hour. <em>Every time.</em>

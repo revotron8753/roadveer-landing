@@ -26,7 +26,7 @@ export default function Vendor() {
     <section id="vendor">
       <div className="wrap">
         <div className="shead">
-          <span className="idx">07 — Vendor Network</span>
+          <span className="idx">09 — Vendor Network</span>
           <h2 className="stitle">Join 50,000 verified highway vendors</h2>
           <p className="slede">
             Get certified, attract drivers and earn more. Roadveer&rsquo;s Driver

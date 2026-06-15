@@ -49,7 +49,7 @@ export default function Founder() {
 
           <div className="founder-body">
             <div className="shead" style={{ marginBottom: 0 }}>
-              <span className="idx">02 — Founder&rsquo;s Story</span>
+              <span className="idx">03 — Founder&rsquo;s Story</span>
               <h2 className="stitle">
                 I did not grow up dreaming of building a technology company.
               </h2>

@@ -27,7 +27,33 @@
       "Bash(node -e \"const t=setInterval\\(async\\(\\)=>{try{const r=await fetch\\('http://localhost:3000'\\);if\\(r.ok\\){console.log\\('UP'\\);clearInterval\\(t\\);process.exit\\(0\\)}}catch{}},1000\\);setTimeout\\(\\(\\)=>{console.log\\('timeout'\\);process.exit\\(1\\)},60000\\)\")",
       "Bash(node -e \"const t=setInterval\\(async\\(\\)=>{try{const r=await fetch\\('http://localhost:3000'\\);if\\(r.ok\\){console.log\\('UP'\\);clearInterval\\(t\\);process.exit\\(0\\)}}catch{}},1000\\);setTimeout\\(\\(\\)=>process.exit\\(1\\),60000\\)\")",
       "Bash(git config *)",
-      "Bash(cmdkey /list)"
+      "Bash(cmdkey /list)",
+      "Bash(cp \"public/New folder/Images/Tanhaji Bhau.jpeg\" \"public/tanaji-jadhav.jpeg\" && echo \"copied\" && ls -la public/tanaji-jadhav.jpeg)",
+      "Bash(node -e \"const fs=require\\('fs'\\);const b=fs.readFileSync\\('public/tanaji-jadhav.jpeg'\\);let i=2;while\\(i<b.length\\){if\\(b[i]!==0xFF\\){i++;continue;}const m=b[i+1];if\\(m>=0xC0&&m<=0xCF&&m!==0xC4&&m!==0xC8&&m!==0xCC\\){const h=b.readUInt16BE\\(i+5\\),w=b.readUInt16BE\\(i+7\\);console.log\\('WxH =',w,'x',h,'ratio',\\(w/h\\).toFixed\\(3\\)\\);break;}i+=2+b.readUInt16BE\\(i+2\\);}\")",
+      "Bash(node shot.mjs top s-top.png)",
+      "Bash(node shot.mjs \"#economy\" s-econ.png)",
+      "Bash(node shot.mjs \"#nhai\" s-nhai.png)",
+      "Bash(node shot.mjs \"#maharashtra\" s-mh.png)",
+      "Bash(node -e \"const fs=require\\('fs'\\);const b=fs.readFileSync\\('public/Logo.png'\\);const w=b.readUInt32BE\\(16\\),h=b.readUInt32BE\\(20\\),bd=b[24],ct=b[25];const types={0:'gray',2:'RGB',3:'palette',4:'gray+alpha',6:'RGBA'};console.log\\('WxH',w+'x'+h,'ratio',\\(w/h\\).toFixed\\(2\\),'bitDepth',bd,'colorType',ct,types[ct]||ct\\);\")",
+      "Bash(node -e \"console.log\\('sharp', require\\('sharp/package.json'\\).version\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const fs=require\\('fs'\\);const b=fs.readFileSync\\('public/logo.png'\\);console.log\\('WxH',b.readUInt32BE\\(16\\)+'x'+b.readUInt32BE\\(20\\),'colorType',b[25],b[25]===6?'RGBA\\(alpha\\)':b[25]===2?'RGB\\(no alpha\\)':'other','ratio',\\(b.readUInt32BE\\(16\\)/b.readUInt32BE\\(20\\)\\).toFixed\\(2\\)\\)\")",
+      "Bash(node shot.mjs nav s-nav.png)",
+      "Bash(node shot.mjs footer s-foot.png)",
+      "Bash(grep -c \"^logo.png$\")",
+      "Bash(node -e \"const fs=require\\('fs'\\);const b=fs.readFileSync\\('public/indian-flag.png'\\);console.log\\('WxH',b.readUInt32BE\\(16\\)+'x'+b.readUInt32BE\\(20\\),'colorType',b[25],b[25]===6?'RGBA':b[25]===2?'RGB\\(no alpha\\)':b[25],'ratio',\\(b.readUInt32BE\\(16\\)/b.readUInt32BE\\(20\\)\\).toFixed\\(2\\)\\)\")",
+      "Bash(Select-String -Pattern \"Compiled|Failed|Error|Finished TypeScript|✓ Generating\")",
+      "Bash(node shot.mjs band s-band.png)",
+      "Bash(node shot.mjs navband s-navband.png)",
+      "Bash(node shot.mjs assoc s-assoc.png)",
+      "Bash(npm run *)",
+      "Bash(echo \"exit=$?\")",
+      "Read(//tmp/**)",
+      "Bash(ls -la /c/Users/anshu/package-lock.json /c/Users/anshu/roadveer/package-lock.json 2>&1; echo \"---next config---\"; ls /c/Users/anshu/roadveer/next.config.* 2>&1)",
+      "Read(//c/Users/anshu/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\anshu\\roadveer\\public\\New folder\\Images"
     ]
   }
 }

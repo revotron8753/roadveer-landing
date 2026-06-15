@@ -30,7 +30,7 @@ export default function Contact() {
         <div className="contact-in">
           <div className="contact-left">
             <span className="idx" style={{ color: "var(--muted-d)" }}>
-              08 — Get Involved
+              10 — Get Involved
             </span>
             <h2 className="stitle">Join the Roadveer movement</h2>
             <p className="slede">
