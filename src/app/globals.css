@@ -446,14 +446,32 @@ section{padding:118px 0;position:relative}
 .vc .vn{font-family:var(--font-montserrat),sans-serif;font-size:12px;color:var(--accent);font-weight:600}
 .vc .vt{font-size:14.5px;font-weight:500;color:var(--ink)}
 .vend-journey{border:1px solid var(--line);background:var(--card);padding:44px 48px}
-.vj-title{font-family:var(--font-montserrat),sans-serif;font-size:26px;font-weight:500;color:var(--ink);margin-bottom:30px}
-.vj-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line)}
-.vj-step{padding:22px 18px 22px 0;border-right:1px solid var(--line)}
-.vj-step:last-child{border-right:none;padding-right:0}
-.vj-n{font-family:var(--font-montserrat),sans-serif;font-size:24px;font-weight:500;color:var(--accent);line-height:1}
-.vj-label{font-size:14.5px;font-weight:600;color:var(--ink);margin:12px 0 4px}
-.vj-sub{font-size:12.5px;color:var(--muted);line-height:1.5}
-.vend-cta{margin-top:30px}
+.vj-title{font-family:var(--font-montserrat),sans-serif;font-size:26px;font-weight:500;color:var(--ink);margin-bottom:44px}
+.vj-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.vj-step{position:relative;text-align:center;padding:0 12px}
+/* connector track between adjacent nodes */
+.vj-step:not(:last-child)::after{
+  content:"";position:absolute;z-index:0;top:26px;left:50%;width:100%;height:2px;
+  background:var(--line);
+}
+/* arrow pointing into the next node */
+.vj-step:not(:last-child)::before{
+  content:"";position:absolute;z-index:2;top:21px;left:calc(100% - 4px);
+  width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;
+  border-left:7px solid var(--accent);
+}
+.vj-n{
+  position:relative;z-index:1;width:54px;height:54px;margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;border-radius:50%;
+  background:var(--paper);border:2px solid var(--accent);
+  font-family:var(--font-montserrat),sans-serif;font-size:18px;font-weight:600;
+  color:var(--accent);line-height:1;
+  transition:background .2s,color .2s;
+}
+.vj-step:hover .vj-n{background:var(--accent);color:#fff}
+.vj-label{font-size:14.5px;font-weight:600;color:var(--ink);margin:0 0 6px}
+.vj-sub{font-size:12.5px;color:var(--muted);line-height:1.5;max-width:180px;margin:0 auto}
+.vend-cta{margin-top:44px;text-align:center}
 
 /* ===================== MISSION BAND ===================== */
 .band{background:var(--accent);color:#fff;padding:74px 0}
@@ -533,8 +551,15 @@ section{padding:118px 0;position:relative}
   .founder-aside{max-width:420px}
   .gov-grid,.pillars{grid-template-columns:repeat(2,1fr)}
   .assoc-grid,.vend-cats{grid-template-columns:repeat(2,1fr)}
-  .vj-steps{grid-template-columns:1fr 1fr}
-  .vj-step{border-bottom:1px solid var(--line)}
+  .vj-steps{grid-template-columns:1fr;gap:0}
+  .vj-step{text-align:left;display:grid;grid-template-columns:54px 1fr;column-gap:18px;align-items:start;padding:0 0 30px}
+  .vj-step:last-child{padding-bottom:0}
+  .vj-n{margin:0}
+  .vj-label{grid-column:2;margin:6px 0 6px}
+  .vj-sub{grid-column:2;max-width:none;margin:0}
+  /* vertical track down the left rail */
+  .vj-step:not(:last-child)::after{top:54px;left:26px;width:2px;height:100%}
+  .vj-step:not(:last-child)::before{display:none}
   .foot-top{grid-template-columns:1fr 1fr}
   .vision{text-align:left}
 }
