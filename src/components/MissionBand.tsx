@@ -1,13 +1,18 @@
+"use client";
+
+import { useContent } from "@/lib/i18n";
+
 export default function MissionBand() {
+  const t = useContent().missionBand;
   return (
     <div className="band">
       <div className="band-in">
         <p>
-          Behind every truck is a person. Behind every person is a family.{" "}
-          <em>And behind every journey is a dream.</em>
+          {t.pre}
+          <em>{t.em}</em>
         </p>
         <a href="#contact" className="blink">
-          Join the Mission <span>&rarr;</span>
+          {t.join} <span>&rarr;</span>
         </a>
       </div>
     </div>

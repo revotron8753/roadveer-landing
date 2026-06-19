@@ -2,20 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-const LINKS = [
-  { href: "#about", label: "Mission", mobile: "Mission" },
-  { href: "#cofounder", label: "Leadership", mobile: "Co-Founder" },
-  { href: "#farukh", label: "Founder", mobile: "Founder Story" },
-  { href: "#rtr", label: "RTR", mobile: "RTR Network" },
-  { href: "#maharashtra", label: "Maharashtra", mobile: "Maharashtra Strategy" },
-  { href: "#economy", label: "Economy", mobile: "Highway Economy" },
-  { href: "#emergency", label: "Emergency", mobile: "Emergency Response" },
-  { href: "#nhai", label: "Safety", mobile: "Road Safety" },
-  { href: "#vendor", label: "Vendors", mobile: "Vendor Network" },
-];
+import { useContent, useLang } from "@/lib/i18n";
 
 export default function SiteNav() {
+  const t = useContent();
+  const { lang, toggle } = useLang();
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("");
 
@@ -41,10 +32,10 @@ export default function SiteNav() {
     <>
       <header className="nv">
         <div className="nv-in">
-          <a href="#hero" className="nv-mark" aria-label="Tiger Roadveer — home">
+          <a href="#hero" className="nv-mark" aria-label={t.nav.homeAria}>
             <Image
               src="/logo.png"
-              alt="Tiger Roadveer"
+              alt={t.nav.logoAlt}
               width={1891}
               height={832}
               priority
@@ -52,7 +43,7 @@ export default function SiteNav() {
             />
           </a>
           <nav className="nv-links">
-            {LINKS.map((l) => (
+            {t.nav.links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
@@ -63,11 +54,21 @@ export default function SiteNav() {
             ))}
           </nav>
           <div className="nv-actions">
+            <button
+              type="button"
+              className="lang-btn"
+              onClick={toggle}
+              aria-label={
+                lang === "en" ? "मराठीत बदला" : "Switch to English"
+              }
+            >
+              {lang === "en" ? "मराठी" : "EN"}
+            </button>
             <a href="#contact" className="lnk">
-              Register
+              {t.nav.register}
             </a>
             <a href="#rtr" className="nv-cta">
-              Join RTR
+              {t.nav.joinRtr}
             </a>
           </div>
           <button
@@ -85,14 +86,24 @@ export default function SiteNav() {
       </header>
 
       <div className={`nv-mobile${menuOpen ? " open" : ""}`}>
-        {LINKS.map((l) => (
+        {t.nav.links.map((l) => (
           <a key={l.href} href={l.href} onClick={close}>
             {l.mobile}
           </a>
         ))}
         <a href="#contact" onClick={close}>
-          Register / Contact
+          {t.nav.registerContact}
         </a>
+        <button
+          type="button"
+          className="lang-btn lang-btn-mobile"
+          onClick={() => {
+            toggle();
+            close();
+          }}
+        >
+          {lang === "en" ? "मराठीत वाचा" : "Read in English"}
+        </button>
       </div>
     </>
   );

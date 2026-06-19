@@ -1,55 +1,26 @@
-const STAGES = [
-  {
-    stage: "Taluka",
-    title: "Start at the taluka",
-    desc: "Register RTRs, train volunteers and activate the first WhatsApp groups, block by block.",
-  },
-  {
-    stage: "District",
-    title: "Scale to the district",
-    desc: "Coordinate ambulances, vendors, blood donors and welfare across every taluka in the district.",
-  },
-  {
-    stage: "State",
-    title: "Cover Maharashtra",
-    desc: "1,00,000 RTR volunteers across all 36 districts, coordinated through MHRCDC.",
-  },
-  {
-    stage: "Nation",
-    title: "Replicate across India",
-    desc: "Take the proven Maharashtra model to every state and every national highway.",
-  },
-];
+"use client";
 
-const STATS = [
-  { n: "36", t: "Districts" },
-  { n: "358", t: "Talukas" },
-  { n: "1,00,000", t: "RTR Target" },
-  { n: "Tiger Group", t: "Ground Network" },
-];
+import { useContent } from "@/lib/i18n";
 
 export default function MaharashtraStrategy() {
+  const t = useContent().maharashtra;
   return (
     <section id="maharashtra" className="mh">
       <div className="wrap">
         <div className="shead">
-          <span className="idx">05 — Maharashtra Strategy</span>
-          <span className="eyebrow">State-First Model</span>
+          <span className="idx">{t.idx}</span>
+          <span className="eyebrow">{t.eyebrow}</span>
           <h2 className="stitle">
-            Maharashtra first. <em>Then the nation.</em>
+            {t.title.pre}
+            <em>{t.title.em}</em>
+            {t.title.post}
           </h2>
-          <p className="slede">
-            Roadveer proves its model on the ground in Maharashtra — one taluka,
-            one district at a time — before scaling across India. This is where
-            community trust, volunteer mobilisation and government alignment come
-            together first, under the leadership of Co-Founder Shri Tanaji Bhau
-            Jadhav.
-          </p>
+          <p className="slede">{t.lede}</p>
         </div>
 
         <div className="mh-in">
           <ol className="ladder">
-            {STAGES.map((s) => (
+            {t.stages.map((s) => (
               <li key={s.stage}>
                 <div className="ld-stage">{s.stage}</div>
                 <div className="ld-body">
@@ -62,19 +33,13 @@ export default function MaharashtraStrategy() {
 
           <div className="mh-side">
             <div className="mhrcdc-card">
-              <span className="tag">Strategic Vehicle</span>
-              <h3>MHRCDC</h3>
-              <div className="sub">
-                Maharashtra Highway, Road &amp; Community Development Council
-              </div>
-              <p>
-                The state-level coordination body driving Roadveer&rsquo;s
-                Maharashtra rollout — RTR networks, district participation,
-                emergency response and driver-welfare delivery on the ground.
-              </p>
+              <span className="tag">{t.cardTag}</span>
+              <h3>{t.cardTitle}</h3>
+              <div className="sub">{t.cardSub}</div>
+              <p>{t.cardDesc}</p>
             </div>
             <div className="mh-stats">
-              {STATS.map((s) => (
+              {t.stats.map((s) => (
                 <div className="mh-stat" key={s.t}>
                   <b>{s.n}</b>
                   <span>{s.t}</span>

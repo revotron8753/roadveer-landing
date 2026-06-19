@@ -50,7 +50,13 @@
       "Bash(echo \"exit=$?\")",
       "Read(//tmp/**)",
       "Bash(ls -la /c/Users/anshu/package-lock.json /c/Users/anshu/roadveer/package-lock.json 2>&1; echo \"---next config---\"; ls /c/Users/anshu/roadveer/next.config.* 2>&1)",
-      "Read(//c/Users/anshu/**)"
+      "Read(//c/Users/anshu/**)",
+      "Bash(perl -i -pe 's/\\(?<!Tiger \\)Roadveer\\(?! Tiger Rakshak\\)/Tiger Roadveer/g' README.md src/app/globals.css src/app/layout.tsx src/components/Footer.tsx src/components/SiteNav.tsx src/components/Contact.tsx src/components/Vendor.tsx src/components/RoadSafety.tsx src/components/Emergency.tsx src/components/Economy.tsx src/components/MaharashtraStrategy.tsx src/components/Hero.tsx src/components/RTR.tsx src/components/Founder.tsx src/components/CoFounder.tsx src/components/RegisterForm.tsx src/components/About.tsx)",
+      "Bash(perl -i -pe 's/\"roadveer-landig\"/\"tiger-roadveer-landig\"/g' package.json package-lock.json)",
+      "PowerShell(npm run build 2>&1)",
+      "PowerShell(npm run dev)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 45; \"STATUS: $\\($r.StatusCode\\)\"; if \\($r.Content -match \"global-error|Client Manifest\"\\) { \"ERROR STILL PRESENT\" } else { \"No manifest error in HTML\" }; if \\($r.Content -match \"Tiger Roadveer\"\\) { \"Page rendered Tiger Roadveer content OK\" } } catch { \"REQUEST FAILED: $\\($_.Exception.Message\\)\" })",
+      "PowerShell($ok=$false; for\\($i=0;$i -lt 20;$i++\\){ try{ $r=Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 5; if\\($r.StatusCode -eq 200\\){ \"STATUS 200 - dev server up\"; $ok=$true; break } }catch{ Start-Sleep -Milliseconds 1000 } }; if\\(-not $ok\\){ \"not up yet\" })"
     ],
     "additionalDirectories": [
       "C:\\Users\\anshu\\roadveer\\public\\New folder\\Images"

@@ -1,39 +1,33 @@
-import Image from "next/image";
+"use client";
 
-const STATS = [
-  { num: "50", acc: "L+", label: "Drivers" },
-  { num: "5", acc: "L", label: "RTR Target" },
-  { num: "2", acc: "L", label: "Vendors" },
-  { num: "1", acc: "K+", label: "Ambulances" },
-];
+import Image from "next/image";
+import { useContent } from "@/lib/i18n";
 
 export default function Hero() {
+  const t = useContent().hero;
   return (
     <section id="hero">
       <div className="wrap">
         <div className="hero-in">
           <div className="hero-copy">
-            <span className="eyebrow">A National Mission · India&rsquo;s Highway Economy Platform</span>
+            <span className="eyebrow">{t.eyebrow}</span>
             <h1 className="hero-h1">
-              Building for those who keep India <em>moving.</em>
+              {t.h1.pre}
+              <em>{t.h1.em}</em>
+              {t.h1.post}
             </h1>
-            <p className="hero-sub">Driver Ka Saathi &nbsp;·&nbsp; Highway Ka Dost</p>
-            <blockquote className="hero-quote">
-              &ldquo;If the truck moves, someone&rsquo;s family reaches home.&rdquo;
-            </blockquote>
-            <p className="hero-lede">
-              A platform for drivers, volunteers, vendors and communities across
-              every national highway in the nation.
-            </p>
+            <p className="hero-sub">{t.sub}</p>
+            <blockquote className="hero-quote">{t.quote}</blockquote>
+            <p className="hero-lede">{t.lede}</p>
             <div className="hero-acts">
               <a href="#rtr" className="btn">
-                Become an RTR
+                {t.becomeRtr}
               </a>
               <a href="#contact" className="lnk">
-                Register as Vendor <span className="arw">&rarr;</span>
+                {t.registerVendor} <span className="arw">&rarr;</span>
               </a>
               <a href="#contact" className="lnk">
-                Download App <span className="arw">&rarr;</span>
+                {t.downloadApp} <span className="arw">&rarr;</span>
               </a>
             </div>
           </div>
@@ -42,7 +36,7 @@ export default function Hero() {
             <div className="frame">
               <Image
                 src="/founder-gadkari.jpg"
-                alt="Farukh Yelapure with Hon. Shri Nitin Gadkari Ji, Minister of Road Transport & Highways"
+                alt={t.figAlt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 520px"
                 style={{ objectFit: "cover", objectPosition: "center top" }}
@@ -50,18 +44,18 @@ export default function Hero() {
               />
             </div>
             <figcaption className="hero-cap">
-              <span className="tag">Ministry of Road Transport &amp; Highways</span>
+              <span className="tag">{t.figTag}</span>
               <p>
-                <strong>Farukh Yelapure</strong>, Founder &mdash; Roadveer, with{" "}
-                <strong>Hon. Shri Nitin Gadkari Ji</strong>{" "}
-                <span>&mdash; Minister of Road Transport &amp; Highways, Govt. of India</span>
+                <strong>{t.cap.name1}</strong>
+                {t.cap.mid}
+                <strong>{t.cap.name2}</strong> <span>{t.cap.tail}</span>
               </p>
             </figcaption>
           </figure>
         </div>
 
         <div className="hero-stats">
-          {STATS.map((s) => (
+          {t.stats.map((s) => (
             <div className="hstat" key={s.label}>
               <div className="hstat-n">
                 {s.num}

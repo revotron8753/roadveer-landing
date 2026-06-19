@@ -1,28 +1,7 @@
+"use client";
+
 import Image from "next/image";
-
-const PLATFORM = [
-  { href: "#rtr", label: "RTR Volunteer Network" },
-  { href: "#vendor", label: "Vendor Registration" },
-  { href: "#economy", label: "Highway Economy" },
-  { href: "#emergency", label: "Emergency Response" },
-  { href: "#", label: "Download App" },
-];
-
-const SAFETY = [
-  { href: "https://nhai.gov.in", label: "NHAI" },
-  { href: "https://morth.gov.in", label: "MoRTH" },
-  { href: "https://irad.morth.nic.in", label: "iRAD / e-DAR" },
-  { href: "https://roadsafety.morth.nic.in", label: "Road Safety Portal" },
-  { href: "https://savelifefoundation.org", label: "Save Life Foundation" },
-];
-
-const ORG = [
-  { href: "#about", label: "About Roadveer" },
-  { href: "#farukh", label: "Founder Story" },
-  { href: "#contact", label: "Partner with Us" },
-  { href: "#contact", label: "CSR & Investment" },
-  { href: "mailto:info@roadveer.com", label: "info@roadveer.com" },
-];
+import { useContent } from "@/lib/i18n";
 
 function FooterCol({
   title,
@@ -51,6 +30,7 @@ function FooterCol({
 }
 
 export default function Footer() {
+  const t = useContent().footer;
   return (
     <footer className="foot">
       <div className="foot-in">
@@ -59,16 +39,13 @@ export default function Footer() {
             <div className="foot-logo">
               <Image
                 src="/logo.png"
-                alt="Tiger Roadveer"
+                alt={t.logoAlt}
                 width={1891}
                 height={832}
                 className="foot-logo-img"
               />
             </div>
-            <p>
-              Driver Ka Saathi · Highway Ka Dost. Building for those who keep
-              India moving.
-            </p>
+            <p>{t.tagline}</p>
             <div className="foot-social">
               <a
                 href="https://www.linkedin.com/in/farukh-yelapure-6540b18a"
@@ -89,27 +66,21 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <FooterCol title="Platform" links={PLATFORM} />
-          <FooterCol title="Road Safety" links={SAFETY} />
-          <FooterCol title="Organisation" links={ORG} />
+          <FooterCol title={t.colPlatform} links={t.platform} />
+          <FooterCol title={t.colSafety} links={t.safety} />
+          <FooterCol title={t.colOrg} links={t.org} />
         </div>
         <div className="foot-bottom">
-          <p>
-            © 2025 Roadveer. Roadveer Road Safety &amp; Welfare Foundation
-            (Section 8 Company, MCA Registered).
-          </p>
+          <p>{t.copyright}</p>
           <div className="foot-natl">
             <Image
               src="/indian-flag.png"
-              alt="Flag of India"
+              alt={t.flagAlt}
               width={1536}
               height={1024}
               className="foot-flag"
             />
-            <p>
-              Kolhapur, Maharashtra · All India Operations · Aligned with MoRTH
-              &amp; NHAI National Road Safety Mission
-            </p>
+            <p>{t.natl}</p>
           </div>
         </div>
       </div>

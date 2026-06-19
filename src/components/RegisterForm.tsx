@@ -1,17 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const ROLES = [
-  "RTR Volunteer (Roadveer Tiger Rakshak)",
-  "Driver — Register on Platform",
-  "Vendor — Mechanic / Tyre / Dhaba / Other",
-  "Ambulance / Hospital Partner",
-  "CSR / Corporate Partner",
-  "Investor",
-  "Government / NGO Partner",
-  "Other",
-];
+import { useContent } from "@/lib/i18n";
 
 const EMPTY = {
   name: "",
@@ -23,6 +13,7 @@ const EMPTY = {
 };
 
 export default function RegisterForm() {
+  const t = useContent().form;
   const [form, setForm] = useState(EMPTY);
   const [submitted, setSubmitted] = useState(false);
 
@@ -44,10 +35,11 @@ export default function RegisterForm() {
   if (submitted) {
     return (
       <div className="contact-form" role="status">
-        <div className="form-title">Dhanyavaad.</div>
+        <div className="form-title">{t.successTitle}</div>
         <p className="form-sub">
-          Thank you{form.name ? `, ${form.name}` : ""}. Your registration has
-          been received — the Roadveer team will reach out within 24 hours.
+          {t.successPre}
+          {form.name ? `, ${form.name}` : ""}
+          {t.successPost}
         </p>
         <button
           type="button"
@@ -57,7 +49,7 @@ export default function RegisterForm() {
             setSubmitted(false);
           }}
         >
-          Register another
+          {t.registerAnother}
         </button>
       </div>
     );
@@ -65,28 +57,26 @@ export default function RegisterForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <div className="form-title">Register with Roadveer</div>
-      <p className="form-sub">
-        Fill in your details and we will get back within 24 hours.
-      </p>
+      <div className="form-title">{t.title}</div>
+      <p className="form-sub">{t.sub}</p>
       <div className="form-row">
         <div className="form-group">
-          <label htmlFor="rv-name">Full Name *</label>
+          <label htmlFor="rv-name">{t.fullName}</label>
           <input
             id="rv-name"
             type="text"
-            placeholder="Your name"
+            placeholder={t.namePlaceholder}
             required
             value={form.name}
             onChange={update("name")}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="rv-mobile">Mobile Number *</label>
+          <label htmlFor="rv-mobile">{t.mobile}</label>
           <input
             id="rv-mobile"
             type="tel"
-            placeholder="+91"
+            placeholder={t.mobilePlaceholder}
             required
             value={form.mobile}
             onChange={update("mobile")}
@@ -95,51 +85,51 @@ export default function RegisterForm() {
       </div>
       <div className="form-row">
         <div className="form-group">
-          <label htmlFor="rv-state">State</label>
+          <label htmlFor="rv-state">{t.state}</label>
           <input
             id="rv-state"
             type="text"
-            placeholder="Maharashtra"
+            placeholder={t.statePlaceholder}
             value={form.state}
             onChange={update("state")}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="rv-district">District / Taluka</label>
+          <label htmlFor="rv-district">{t.district}</label>
           <input
             id="rv-district"
             type="text"
-            placeholder="Your district"
+            placeholder={t.districtPlaceholder}
             value={form.district}
             onChange={update("district")}
           />
         </div>
       </div>
       <div className="form-group">
-        <label htmlFor="rv-role">I want to join as *</label>
+        <label htmlFor="rv-role">{t.joinAs}</label>
         <select
           id="rv-role"
           required
           value={form.role}
           onChange={update("role")}
         >
-          <option value="">Select your role</option>
-          {ROLES.map((r) => (
+          <option value="">{t.selectRole}</option>
+          {t.roles.map((r) => (
             <option key={r}>{r}</option>
           ))}
         </select>
       </div>
       <div className="form-group">
-        <label htmlFor="rv-message">Message (Optional)</label>
+        <label htmlFor="rv-message">{t.message}</label>
         <textarea
           id="rv-message"
-          placeholder="Tell us about yourself or your organisation..."
+          placeholder={t.messagePlaceholder}
           value={form.message}
           onChange={update("message")}
         />
       </div>
       <button type="submit" className="form-submit">
-        Submit Registration
+        {t.submit}
       </button>
     </form>
   );
