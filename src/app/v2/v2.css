@@ -325,11 +325,16 @@
 .tv-logo-more { grid-column: span 2; color: var(--o); background: #fff7ef; border-color: #f3ddc4; font-size: 14px; min-height: 50px; }
 .tv-partners-card .tv-btn { align-self: flex-start; margin-top: auto; }
 .tv-ministry .lbl { color: var(--navy); font-weight: 700; font-size: 13px; letter-spacing: .06em; margin: 0 0 12px; }
-.tv-ministry p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0 0 20px; }
-.tv-ministry-emblem { display: flex; align-items: center; gap: 14px; margin-top: auto; }
-.tv-ministry-emblem .em { width: 52px; height: 52px; border-radius: 50%; background: #eef1f5; display: grid; place-items: center; font-size: 16px; font-weight: 700; color: var(--navy); flex: none; }
-.tv-ministry-emblem b { color: var(--navy); font-size: 14px; line-height: 1.3; }
-.tv-ministry-emblem span { color: var(--muted); font-size: 12.5px; }
+.tv-ministry p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0 0 18px; }
+.tv-ministry p.tv-ministry-sub { color: var(--navy); font-weight: 700; font-size: 13px; margin: 0 0 14px; }
+.tv-ministry-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.tv-ministry-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+.tv-ministry-list li::before {
+  content: "✓"; width: 20px; height: 20px; border-radius: 50%; background: var(--green);
+  color: #fff; font-size: 11px; display: grid; place-items: center; flex: none; margin-top: 1px;
+}
+.tv-ministry-emblem { display: flex; align-items: center; margin-top: auto; padding-top: 8px; }
+.tv-ministry-emblem img { height: 76px; width: auto; max-width: 100%; }
 
 /* ===================== JOIN MOVEMENT ===================== */
 .tv-join { padding: 0; }

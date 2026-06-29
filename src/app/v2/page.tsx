@@ -327,12 +327,15 @@ export default function V2Page() {
             <div className="tv-ministry">
               <p className="lbl">UNDER THE MINISTRY OF ROAD TRANSPORT &amp; HIGHWAYS</p>
               <p>Our initiatives align with the vision of the Government of India towards safer roads, stronger communities and Viksit Bharat.</p>
+              <p className="tv-ministry-sub">Our work directly supports the mission to:</p>
+              <ul className="tv-ministry-list">
+                <li>Build safer national highways and reduce road accidents</li>
+                <li>Uphold the dignity and welfare of drivers &amp; transport workers</li>
+                <li>Create skilling, livelihoods and rural market connectivity</li>
+                <li>Advance a self-reliant, Viksit Bharat</li>
+              </ul>
               <div className="tv-ministry-emblem">
-                <span className="em">🇮🇳</span>
-                <div>
-                  <b>Ministry of Road Transport &amp; Highways</b><br />
-                  <span>Government of India</span>
-                </div>
+                <img src="/Ministry_of_Road_Transport_and_Highways.svg" alt="Ministry of Road Transport & Highways, Government of India" />
               </div>
             </div>
           </div>
