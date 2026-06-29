@@ -1,5 +1,6 @@
 import "server-only";
 import { client } from "./client";
+import { sanityEnabled } from "./env";
 import { SECTIONS_QUERY } from "./queries";
 import { CONTENT, type Content } from "@/lib/content";
 
@@ -51,6 +52,11 @@ function deepMerge(base: any, over: any): any {
 }
 
 export async function getContent(): Promise<ContentBundle> {
+  // CMS not configured → serve the local static content, no network call.
+  if (!sanityEnabled) {
+    return { en: CONTENT.en, mr: CONTENT.mr };
+  }
+
   let raw: Record<string, any> = {};
   try {
     raw =
