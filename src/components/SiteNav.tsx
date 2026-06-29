@@ -28,11 +28,15 @@ export default function SiteNav() {
 
   const close = () => setMenuOpen(false);
 
+  // Anchor links must be absolute (/#about) so they also work from /blog pages.
+  const toHref = (href: string) => (href.startsWith("#") ? `/${href}` : href);
+  const blogLabel = lang === "mr" ? "ब्लॉग" : "Blog";
+
   return (
     <>
       <header className="nv">
         <div className="nv-in">
-          <a href="#hero" className="nv-mark" aria-label={t.nav.homeAria}>
+          <a href="/#hero" className="nv-mark" aria-label={t.nav.homeAria}>
             <Image
               src="/logo.png"
               alt={t.nav.logoAlt}
@@ -46,12 +50,13 @@ export default function SiteNav() {
             {t.nav.links.map((l) => (
               <a
                 key={l.href}
-                href={l.href}
+                href={toHref(l.href)}
                 className={`#${active}` === l.href ? "active" : ""}
               >
                 {l.label}
               </a>
             ))}
+            <a href="/blog">{blogLabel}</a>
           </nav>
           <div className="nv-actions">
             <button
@@ -87,11 +92,14 @@ export default function SiteNav() {
 
       <div className={`nv-mobile${menuOpen ? " open" : ""}`}>
         {t.nav.links.map((l) => (
-          <a key={l.href} href={l.href} onClick={close}>
+          <a key={l.href} href={toHref(l.href)} onClick={close}>
             {l.mobile}
           </a>
         ))}
-        <a href="#contact" onClick={close}>
+        <a href="/blog" onClick={close}>
+          {blogLabel}
+        </a>
+        <a href="/#contact" onClick={close}>
           {t.nav.registerContact}
         </a>
         <button

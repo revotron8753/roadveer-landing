@@ -1,0 +1,450 @@
+/* ============================================================
+   Tiger RoadVeer Welfare Foundation — new landing page (/v2)
+   Fully scoped under .tv so it never touches the existing site.
+   ============================================================ */
+.tv {
+  --o: #f47a1f;        /* orange  */
+  --o-d: #e06a12;
+  --navy: #0e2a47;     /* deep navy */
+  --blue: #1c4e80;
+  --green: #2f8f4e;
+  --green-d: #24713e;
+  --ink: #1f2733;
+  --muted: #5b6675;
+  --line: #e6e3dd;
+  --cream: #fff7ee;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  color: var(--ink);
+  background: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+.tv *, .tv *::before, .tv *::after { box-sizing: border-box; }
+.tv img { max-width: 100%; display: block; }
+.tv-wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+.tv-eyebrow {
+  color: var(--o); font-weight: 700; font-size: 13px;
+  letter-spacing: .14em; text-transform: uppercase; margin: 0 0 14px;
+}
+.tv-h2 {
+  font-size: clamp(26px, 3.4vw, 38px); font-weight: 700;
+  line-height: 1.15; color: var(--navy); margin: 0 0 18px; letter-spacing: -.01em;
+}
+.tv-center { text-align: center; }
+
+/* arrows / buttons */
+.tv-btn {
+  display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+  font-weight: 600; font-size: 15px; padding: 14px 26px; border-radius: 8px;
+  border: none; text-decoration: none; transition: transform .15s, background .2s, box-shadow .2s;
+}
+.tv-btn:hover { transform: translateY(-2px); }
+.tv-btn-o { background: var(--o); color: #fff; box-shadow: 0 8px 20px rgba(244,122,31,.32); }
+.tv-btn-o:hover { background: var(--o-d); }
+.tv-btn-g { background: var(--green); color: #fff; box-shadow: 0 8px 20px rgba(47,143,78,.3); }
+.tv-btn-g:hover { background: var(--green-d); }
+.tv-btn-ghost { background: rgba(255,255,255,.12); color: #fff; border: 1.5px solid rgba(255,255,255,.7); }
+.tv-btn-ghost:hover { background: rgba(255,255,255,.22); }
+.tv-btn-line { background: #fff; color: var(--navy); border: 1.5px solid var(--line); }
+
+/* ===================== HEADER ===================== */
+.tv-hdr {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 50;
+  background: linear-gradient(180deg, rgba(6,17,30,.72) 0%, rgba(6,17,30,.34) 56%, rgba(6,17,30,0) 100%);
+}
+/* full-width header with the same 60px gutters as the hero copy and stat bar,
+   so the logo aligns with "Building India's" and the button aligns with the
+   stat bar's right edge ("5,000+ Hospitals Network"). */
+.tv-hdr-in { max-width: none; margin: 0; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px; }
+.tv-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.tv-mark {
+  width: 50px; height: 50px; border-radius: 50%; flex: none;
+  background-image: url("/Logo Bg-Removed.png");
+  background-size: 470% auto; background-position: 48% 38%; background-repeat: no-repeat;
+  background-color: #fff; border: 2px solid var(--o);
+}
+.tv-brand-tx { line-height: 1.05; }
+.tv-brand-tx b { display: block; color: #fff; font-size: 18px; font-weight: 800; letter-spacing: .02em; }
+.tv-brand-tx b span { color: var(--o); }
+.tv-brand-tx i { display: block; font-style: normal; color: rgba(255,255,255,.92); font-size: 10.5px; font-weight: 700; letter-spacing: .08em; }
+.tv-brand-tx em { display: block; font-style: normal; color: var(--o); font-size: 10px; font-weight: 600; letter-spacing: .06em; margin-top: 1px; }
+.tv-nav { display: flex; gap: 28px; }
+.tv-nav a { color: #eef2f7; text-decoration: none; font-size: 14.5px; font-weight: 500; transition: color .2s; }
+.tv-nav a:hover { color: var(--o); }
+.tv-hdr .tv-btn { padding: 11px 20px; font-size: 14px; }
+.tv-burger { display: none; }
+
+/* ===================== HERO ===================== */
+/* The whole hero is one viewport tall: header overlays the top, the copy is
+   vertically centred, and the stat card floats near the bottom edge. */
+.tv-hero {
+  position: relative; color: #fff;
+  height: 100vh; height: 100svh; display: flex; flex-direction: column;
+  /* solid navy — must match the fade overlay's opaque colour (#0b2440) exactly
+     so the image's faded edge dissolves into it with no seam line. */
+  background: #0b2440;
+  overflow: hidden;
+}
+/* the photo is anchored to the right side; the hero's own navy fills the left */
+.tv-hero-bg { position: absolute; top: 0; right: 0; bottom: 0; left: auto; width: 82%; z-index: 0; }
+/* The photo is a plain backdrop — object-left keeps its left side in view
+   after the right-panel crop, matching the mandi hero. */
+.tv-hero-bg img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+}
+/* The "fade" is this gradient sheet laid over the photo: fully opaque navy at
+   the panel's left edge → transparent by ~46%, so the image dissolves into the
+   dark text area with no seam (the dark-theme version of mandi's white wash). */
+.tv-hero-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to right,
+    #0b2440 0%,
+    #0b2440 8%,
+    rgba(11,36,64,.55) 24%,
+    rgba(11,36,64,0) 46%);
+}
+.tv-hero-in {
+  position: relative; z-index: 1; flex: 1 1 auto; min-height: 0;
+  max-width: none; margin: 0;
+  display: flex; align-items: center; padding: 90px 0 130px 60px;
+}
+.tv-hero-copy { max-width: 540px; }
+.tv-hero h1 {
+  font-size: clamp(28px, 3.1vw, 46px); font-weight: 800; line-height: 1.08;
+  letter-spacing: -.015em; margin: 0 0 20px;
+}
+.tv-h1-sm { display: block; font-size: .58em; font-weight: 700; letter-spacing: -.005em; margin-bottom: 4px; }
+.tv-hero-sub { font-size: 15px; line-height: 1.6; color: #e9eef4; max-width: 470px; margin: 0 0 28px; }
+.tv-hero-sub .s { color: #76d39a; font-weight: 600; }
+.tv-hero-sub .k { color: #ffb454; font-weight: 600; }
+.tv-hero-acts { display: flex; flex-wrap: wrap; gap: 16px; }
+
+/* stats bar — a flat glass band resting at the hero's bottom edge */
+.tv-statbar { position: absolute; left: 0; right: 0; bottom: 16px; z-index: 2; }
+/* align the stat card's left edge with the hero copy (same 60px gutter) */
+.tv-statbar .tv-wrap { max-width: none; margin: 0; padding: 0 60px; }
+.tv-statbar-in {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  background: linear-gradient(180deg, rgba(18,38,60,.72) 0%, rgba(9,21,37,.86) 100%);
+  border: 1px solid rgba(255,255,255,.12);
+  border-top-color: rgba(255,255,255,.22);
+  border-radius: 14px;
+  box-shadow: 0 14px 32px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(10px) saturate(115%);
+  overflow: hidden;
+}
+.tv-stat { display: flex; align-items: center; gap: 13px; padding: 15px 22px; color: #fff; }
+.tv-stat + .tv-stat { border-left: 1px solid rgba(255,255,255,.13); }
+.tv-stat svg { width: 30px; height: 30px; flex: none; color: rgba(255,255,255,.80); }
+.tv-stat b { display: block; font-size: 22px; font-weight: 800; line-height: 1.1; }
+.tv-stat span { display: block; font-size: 12px; color: #aebccd; margin-top: 3px; }
+
+/* ===================== CONTINUOUS BACKGROUND TINT =====================
+   A single wash running behind every mid-page section: warm peach/apricot
+   at the top (Highway Economy), neutral cream through the middle
+   (Visionaries / Philosophy), softening into sage-green toward the bottom
+   (Rakshak / Impact / Partners). Two faint radial glows add diagonal life
+   — a warm corner top-left, a cool corner bottom-right. Sections inside
+   are transparent so this shows through; their cards float on top. */
+.tv-flow {
+  position: relative;
+  background:
+    /* cool blue glow bleeding down from the navy hero — top-left */
+    radial-gradient(920px 520px at 3% 1%, rgba(146,176,226,.45), rgba(146,176,226,0) 60%),
+    /* warm peach glow — upper-right */
+    radial-gradient(1150px 680px at 100% 3%, rgba(250,205,158,.62), rgba(250,205,158,0) 60%),
+    /* soft sage glow — lower-right, carried into the later sections */
+    radial-gradient(1250px 820px at 86% 90%, rgba(150,192,152,.30), rgba(150,192,152,0) 62%),
+    /* base wash: cool cream-lavender at top → warm cream → soft green at bottom */
+    linear-gradient(168deg,
+      #e9edf6 0%,
+      #f6ece1 26%,
+      #f4efe7 46%,
+      #edf2e9 72%,
+      #f1f5ee 100%);
+}
+
+/* ===================== HIGHWAY ECONOMY ===================== */
+.tv-eco {
+  background: transparent;
+  padding: 80px 0;
+}
+.tv-eco-in { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 40px; align-items: center; }
+.tv-eco-l p { color: #4a5566; font-size: 15.5px; line-height: 1.7; margin: 0 0 16px; }
+.tv-eco-img { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.16); }
+.tv-eco-img img { width: 100%; height: 340px; object-fit: cover; }
+.tv-eco-stats { display: flex; flex-direction: column; gap: 22px; }
+.tv-eco-stat { display: flex; gap: 15px; align-items: flex-start; }
+.tv-eco-stat svg { width: 30px; height: 30px; color: var(--o); flex: none; margin-top: 2px; }
+.tv-eco-stat b { display: block; font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1.15; }
+.tv-eco-stat span { font-size: 14px; color: var(--muted); }
+
+/* ===================== VISIONARIES ===================== */
+.tv-vis { padding: 14px 0 6px; background: transparent; }
+.tv-vis-in {
+  display: grid; grid-template-columns: 1.2fr .5fr 1.2fr; gap: 24px; align-items: start;
+  background: var(--cream); border: 1px solid #f0e3d2; border-radius: 20px; padding: 20px 26px;
+}
+/* photo on the left (tall, stretches to the text height) · text on the right */
+.tv-founder { display: flex; gap: 18px; align-items: stretch; }
+.tv-founder-ph {
+  width: 170px; height: 210px; flex: none; align-self: flex-start;
+  border-radius: 14px; object-fit: cover; object-position: center top;
+  border: 3px solid #fff; box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+.tv-founder-body { display: flex; flex-direction: column; }
+.tv-founder h3 { margin: 0; font-size: 19px; font-weight: 700; color: var(--navy); }
+.tv-founder .role { color: var(--o); font-weight: 600; font-size: 13.5px; margin: 2px 0 9px; }
+.tv-founder p { font-size: 13.5px; line-height: 1.55; color: #54606f; margin: 0 0 7px; }
+.tv-vis-center { display: flex; flex-direction: column; align-items: center; text-align: center; align-self: center; }
+.tv-vis-badge {
+  width: 116px; height: 116px; border-radius: 50%; border: 3px solid var(--o);
+  background-image: url("/Logo Bg-Removed.png"); background-size: 460% auto;
+  background-position: 48% 38%; background-repeat: no-repeat; background-color: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.1); margin-bottom: 14px;
+}
+.tv-vis-center h4 { margin: 0; font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1.35; }
+
+/* ===================== PHILOSOPHY ===================== */
+.tv-phil { padding: 4px 0 16px; background: transparent; }
+.tv-phil-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 6px; }
+.tv-phil-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px 26px; box-shadow: 0 8px 24px rgba(0,0,0,.04); }
+.tv-phil-ic { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; margin-bottom: 14px; }
+.tv-phil-ic svg { width: 28px; height: 28px; color: #fff; }
+.tv-phil-ic.g { background: var(--green); }
+.tv-phil-ic.o { background: var(--o); }
+.tv-phil-card h3 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: .02em; color: var(--navy); }
+.tv-phil-card .we { font-weight: 700; font-size: 15px; margin: 3px 0 10px; }
+.tv-phil-card.g1 .we, .tv-phil-card.g2 .we { color: var(--green); }
+.tv-phil-card.o1 .we { color: var(--o); }
+.tv-phil-card p { font-size: 14.5px; line-height: 1.7; color: var(--muted); margin: 0; }
+.tv-phil-note { text-align: center; font-weight: 600; color: var(--ink); margin: 16px 0 0; font-size: 15px; }
+
+/* ===================== WHO WE EMPOWER ===================== */
+.tv-emp { padding: 84px 0; }
+/* stacked card: full-width people banner on top → centred heading, subtext and
+   pills below; the banner's lower half dissolves into the card colour. */
+.tv-emp-in {
+  position: relative; overflow: hidden;
+  background: #f7faf5; border: 1px solid #e7efe3; border-radius: 20px; padding: 0;
+}
+.tv-emp-banner { position: relative; height: 420px; }
+.tv-emp-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+/* fade the photo's lower half into the card so any leg crop becomes a dissolve */
+.tv-emp-banner::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 50%;
+  background: linear-gradient(to bottom, rgba(247,250,245,0) 0%, rgba(247,250,245,.7) 55%, #f7faf5 100%);
+}
+.tv-emp-body { position: relative; z-index: 1; margin-top: -48px; padding: 0 44px 46px; text-align: center; }
+.tv-emp p { color: var(--muted); font-size: 15px; line-height: 1.65; margin: 0 auto 22px; max-width: 600px; }
+.tv-emp-list {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+  list-style: none; padding: 0; margin: 0 auto; max-width: 920px;
+}
+.tv-emp-list li {
+  display: flex; align-items: center; gap: 9px; font-size: 14.5px; font-weight: 500; color: var(--ink);
+  background: #fff; border: 1px solid #e3ecdd; border-radius: 999px; padding: 9px 18px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.04);
+}
+.tv-emp-list li::before {
+  content: "✓"; width: 20px; height: 20px; border-radius: 50%; background: var(--green);
+  color: #fff; font-size: 12px; display: grid; place-items: center; flex: none;
+}
+
+/* ===================== MISSION AREAS ===================== */
+.tv-mission { padding: 84px 0; background: transparent; }
+.tv-mgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 10px; }
+.tv-mcard { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,.05); transition: transform .2s, box-shadow .2s; }
+.tv-mcard:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0,0,0,.1); }
+.tv-mcard-img { height: 150px; overflow: hidden; }
+.tv-mcard-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+.tv-mcard-b { padding: 18px 18px 22px; }
+.tv-mcard-b h4 { margin: 0 0 6px; font-size: 15.5px; font-weight: 700; color: var(--navy); line-height: 1.25; }
+.tv-mcard-b p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* ===================== BECOME A RAKSHAK ===================== */
+.tv-rak { padding: 40px 0 22px; background: transparent; }
+.tv-rak-in { display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; align-items: stretch; }
+.tv-rak-l > p { color: var(--muted); font-size: 15px; line-height: 1.6; margin: 0 0 20px; max-width: 460px; }
+.tv-steps { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+.tv-step { display: flex; flex-direction: column; align-items: center; text-align: center; width: 88px; }
+.tv-step-ic { width: 52px; height: 52px; border-radius: 50%; background: #fff; border: 2px solid var(--green); display: grid; place-items: center; margin-bottom: 10px; }
+.tv-step-ic svg { width: 24px; height: 24px; color: var(--green); }
+.tv-step b { font-size: 13.5px; color: var(--navy); font-weight: 700; }
+.tv-step span { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+.tv-step-arrow { color: var(--green); font-size: 18px; align-self: center; margin-top: 14px; }
+.tv-mh { background: #fff; border: 1px solid #e2ede0; border-radius: 18px; padding: 24px 26px; display: flex; flex-direction: column; }
+.tv-mh h3 { margin: 0 0 8px; font-size: 21px; font-weight: 800; color: var(--green-d); }
+.tv-mh > p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 16px; }
+.tv-mh-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: center; }
+.tv-mh-stats { display: flex; flex-direction: column; gap: 14px; }
+.tv-mh-stat b { display: block; font-size: 28px; font-weight: 800; color: var(--green-d); line-height: 1; }
+.tv-mh-stat span { font-size: 13px; color: var(--muted); }
+.tv-mh-map {
+  height: 215px; background-color: transparent;
+  background-image: url("/v2-maharashtra.png");
+  background-position: center; background-size: contain; background-repeat: no-repeat;
+}
+
+/* ===================== IMPACT DASHBOARD ===================== */
+/* full-viewport section: the card is vertically centred and the 7 stats sit in
+   a 3-per-row grid (the video fills the remaining cells of the last row). */
+.tv-impact { min-height: 100vh; display: flex; align-items: center; padding: 56px 0; }
+.tv-impact .tv-wrap { width: 100%; }
+.tv-impact-card { background: #f8f8f6; border: 1px solid var(--line); border-radius: 20px; padding: 44px 48px; }
+.tv-impact-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 38px; }
+.tv-impact-top h2 { margin: 0; }
+.tv-impact-top .sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.tv-impact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px 48px; align-items: start; }
+.tv-idash { text-align: left; }
+.tv-idash svg { width: 34px; height: 34px; color: var(--o); margin-bottom: 14px; }
+.tv-idash b { display: block; font-size: 30px; font-weight: 800; color: var(--navy); line-height: 1.1; }
+.tv-idash span { font-size: 14.5px; color: var(--muted); margin-top: 2px; }
+/* video sits below the heading, full width, above the stat grid */
+.tv-ivideo { position: relative; border-radius: 14px; overflow: hidden; height: 240px; margin-bottom: 34px; }
+.tv-ivideo img { width: 100%; height: 100%; object-fit: cover; }
+.tv-ivideo::after { content: "▶"; position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 20px; background: rgba(0,0,0,.28); }
+
+/* ===================== PARTNERS & CSR ===================== */
+/* section header + two equal-height cards (partner logos · ministry) */
+.tv-partners { padding: 60px 0; background: transparent; }
+.tv-partners-h { font-size: clamp(20px, 2.4vw, 28px); font-weight: 700; color: var(--navy); line-height: 1.2; margin: 6px 0 26px; max-width: 680px; }
+.tv-partners-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: stretch; }
+.tv-partners-card, .tv-ministry {
+  background: #fff; border: 1px solid var(--line); border-radius: 18px;
+  padding: 28px 30px; display: flex; flex-direction: column; box-shadow: 0 8px 24px rgba(0,0,0,.04);
+}
+.tv-partners-lbl { color: var(--navy); font-weight: 700; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 16px; }
+.tv-logos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 0 22px; }
+.tv-logo {
+  background: #faf9f7; border: 1px solid var(--line); border-radius: 10px; padding: 15px 14px;
+  text-align: center; font-weight: 700; color: var(--navy); font-size: 15px; min-height: 64px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.tv-logo small { display: block; font-weight: 500; font-size: 10px; color: var(--muted); letter-spacing: .05em; margin-top: 3px; }
+.tv-logo-more { grid-column: span 2; color: var(--o); background: #fff7ef; border-color: #f3ddc4; font-size: 14px; min-height: 50px; }
+.tv-partners-card .tv-btn { align-self: flex-start; margin-top: auto; }
+.tv-ministry .lbl { color: var(--navy); font-weight: 700; font-size: 13px; letter-spacing: .06em; margin: 0 0 12px; }
+.tv-ministry p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0 0 20px; }
+.tv-ministry-emblem { display: flex; align-items: center; gap: 14px; margin-top: auto; }
+.tv-ministry-emblem .em { width: 52px; height: 52px; border-radius: 50%; background: #eef1f5; display: grid; place-items: center; font-size: 16px; font-weight: 700; color: var(--navy); flex: none; }
+.tv-ministry-emblem b { color: var(--navy); font-size: 14px; line-height: 1.3; }
+.tv-ministry-emblem span { color: var(--muted); font-size: 12.5px; }
+
+/* ===================== JOIN MOVEMENT ===================== */
+.tv-join { padding: 0; }
+/* full-bleed band: the orange→green panorama spans the entire page width; the
+   text and form sit in a centred wrap, the white form over the green-right side. */
+.tv-join-card { position: relative; overflow: hidden; color: #fff; background: #1d5329; }
+.tv-join-bg { position: absolute; inset: 0; z-index: 0; }
+.tv-join-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.tv-join-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(24,18,6,.52) 0%, rgba(24,18,6,.18) 34%, rgba(24,18,6,0) 52%);
+}
+.tv-join-grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1.28fr; align-items: center; gap: 26px;
+  padding-top: 34px; padding-bottom: 34px;
+}
+.tv-join-l { position: relative; z-index: 1; }
+.tv-join-l h2 { color: #fff; font-size: clamp(22px, 2.5vw, 32px); font-weight: 800; line-height: 1.12; margin: 0 0 14px; }
+.tv-join-l p { color: #e6efe6; font-size: 14px; line-height: 1.6; max-width: 340px; }
+.tv-form { position: relative; z-index: 1; background: #fff; border-radius: 16px; padding: 22px 24px; box-shadow: 0 18px 46px rgba(0,0,0,.22); }
+.tv-form-t { color: var(--o); font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 16px; }
+.tv-form-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 16px; }
+.tv-form input, .tv-form select, .tv-form textarea {
+  width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 11px 13px;
+  font-size: 13.5px; font-family: inherit; color: var(--ink); background: #fff;
+}
+.tv-form textarea { resize: vertical; min-height: 44px; }
+.tv-form label { display: block; font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 5px; letter-spacing: .04em; }
+.tv-form .tv-btn { width: 100%; justify-content: center; }
+
+/* ===================== FOOTER ===================== */
+.tv-foot { background: #fff; border-top: 1px solid var(--line); }
+.tv-foot-in { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; font-size: 13px; color: var(--muted); flex-wrap: wrap; gap: 10px; }
+.tv-foot-in .heart { color: #e3534a; }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .tv-nav { display: none; }
+  .tv-hdr-in { padding: 0 24px; }
+
+  /* hero grows with its content; full-width photo with a flat top→bottom wash */
+  .tv-hero { height: auto; min-height: 100svh; }
+  .tv-hero-bg { width: 100%; }
+  .tv-hero-bg::after { background: linear-gradient(to bottom, rgba(9,23,42,.62) 0%, rgba(9,23,42,.82) 100%); }
+  .tv-hero-in { padding: 96px 24px 40px; }
+  .tv-statbar { position: static; }
+  .tv-statbar .tv-wrap { padding: 0 24px; }
+  .tv-statbar-in { grid-template-columns: repeat(2, 1fr); }
+  .tv-stat:nth-child(odd) { border-left: none; }
+  /* drop the 5th stat (Hospitals) on mobile so the grid is an even 2×2 */
+  .tv-statbar-in .tv-stat:nth-child(5) { display: none; }
+
+  /* stack every multi-column section to one column */
+  .tv-eco-in { grid-template-columns: 1fr; gap: 30px; }
+  .tv-vis-in { grid-template-columns: 1fr; }
+  .tv-vis-center { padding: 6px 0 14px; }
+  .tv-phil-cards { grid-template-columns: 1fr; }
+  .tv-emp-banner { height: 300px; }
+  .tv-emp-body { padding: 0 24px 36px; }
+  .tv-mgrid { grid-template-columns: repeat(2, 1fr); }
+  .tv-rak-in { grid-template-columns: 1fr; gap: 32px; }
+  .tv-impact { min-height: 0; }
+  .tv-impact-top { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .tv-impact-row { grid-template-columns: repeat(2, 1fr); gap: 26px; }
+  .tv-ivideo { height: 200px; }
+  .tv-partners-grid { grid-template-columns: 1fr; gap: 18px; }
+  /* join: the panorama becomes a top banner that fades into a green field; the
+     form rests on the green below with margin, so the section ends smoothly */
+  .tv-join-card { background: linear-gradient(180deg, #1d5329 0%, #16401e 100%); }
+  .tv-join-bg { top: 0; left: 0; right: 0; bottom: auto; height: 240px; }
+  .tv-join-bg img { object-position: center 38%; }
+  .tv-join-bg::after { background: linear-gradient(to bottom, rgba(16,26,12,.20) 0%, rgba(16,26,12,.5) 58%, #1d5329 100%); }
+  .tv-join-grid { grid-template-columns: 1fr; gap: 0; padding: 0; }
+  .tv-join-l { min-height: 240px; display: flex; flex-direction: column; justify-content: center; padding: 24px; }
+  .tv-join-l p { max-width: none; }
+  .tv-form { margin: 0 20px 30px; }
+  .tv-form-grid { grid-template-columns: 1fr 1fr; }
+
+  /* breathable vertical spacing — the desktop used tight paddings only to fit
+     pairs of sections in one screen; mobile scrolls, so give the room back */
+  .tv-eco { padding: 56px 0; }
+  .tv-vis { padding: 48px 0 22px; }
+  .tv-phil { padding: 22px 0 48px; }
+  .tv-emp { padding: 56px 0; }
+  .tv-mission { padding: 56px 0; }
+  .tv-rak { padding: 48px 0; }
+  .tv-impact { padding: 48px 0; }
+  .tv-partners { padding: 48px 0; }
+}
+
+@media (max-width: 560px) {
+  .tv-wrap { padding: 0 18px; }
+  .tv-hdr-in { padding: 0 18px; gap: 12px; }
+  .tv-hdr .tv-btn { padding: 9px 13px; font-size: 12.5px; }
+  .tv-hero-in { padding: 88px 18px 34px; }
+  .tv-hero-acts .tv-btn { width: 100%; justify-content: center; }
+  .tv-statbar .tv-wrap { padding: 0 18px; }
+
+  /* founders side-by-side, alternating: Tanaji image-left / text-left, Farukh
+     mirrored — image-right / text-right — so each one's text hugs its photo */
+  .tv-vis-in { padding: 20px 16px; gap: 22px; }
+  .tv-founder { gap: 14px; align-items: flex-start; }
+  .tv-founder-ph { width: 128px; height: 162px; }
+  .tv-vis-in > .tv-founder:last-child { flex-direction: row-reverse; text-align: right; }
+
+  .tv-mgrid { grid-template-columns: 1fr; }
+  .tv-mcard-img { height: 200px; }
+  .tv-emp-banner { height: 230px; }
+  /* steps as an even 3-per-row grid instead of an awkward 4 + 1 wrap */
+  .tv-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 6px; }
+  .tv-step { width: auto; }
+  .tv-step-arrow { display: none; }
+  .tv-mh-body { grid-template-columns: 1fr; gap: 18px; }
+  .tv-mh-map { height: 200px; }
+  .tv-impact-row { grid-template-columns: repeat(2, 1fr); }
+  .tv-form-grid { grid-template-columns: 1fr; }
+}

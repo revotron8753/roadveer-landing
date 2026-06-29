@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { LangProvider } from "@/lib/i18n";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -45,9 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={montserrat.variable} suppressHydrationWarning>
-      <body className="antialiased">
-        <LangProvider>{children}</LangProvider>
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

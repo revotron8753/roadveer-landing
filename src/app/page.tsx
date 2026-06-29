@@ -1,3 +1,6 @@
+import { LangProvider } from "@/lib/i18n";
+import { getContent } from "@/sanity/getContent";
+import { getPosts } from "@/sanity/blog";
 import SiteNav from "@/components/SiteNav";
 import Hero from "@/components/Hero";
 import GovtStrip from "@/components/GovtStrip";
@@ -13,10 +16,12 @@ import Vendor from "@/components/Vendor";
 import MissionBand from "@/components/MissionBand";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import BlogStrip from "@/components/BlogStrip";
 
-export default function Home() {
+export default async function Home() {
+  const [content, posts] = await Promise.all([getContent(), getPosts(3)]);
   return (
-    <>
+    <LangProvider content={content}>
       <SiteNav />
       <Hero />
       <GovtStrip />
@@ -29,9 +34,10 @@ export default function Home() {
       <Emergency />
       <RoadSafety />
       <Vendor />
+      <BlogStrip posts={posts} />
       <MissionBand />
       <Contact />
       <Footer />
-    </>
+    </LangProvider>
   );
 }

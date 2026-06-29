@@ -7,9 +7,10 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { CONTENT, type Content } from "./content";
+import type { Content } from "./content";
 
 export type Lang = "en" | "mr";
+export type ContentBundle = { en: Content; mr: Content };
 
 const STORAGE_KEY = "roadveer-lang";
 
@@ -17,14 +18,20 @@ type LangContextValue = {
   lang: Lang;
   setLang: (l: Lang) => void;
   toggle: () => void;
+  content: ContentBundle;
 };
 
 const LangContext = createContext<LangContextValue | null>(null);
 
-export function LangProvider({ children }: { children: ReactNode }) {
-  // Always start as "en" so the server-rendered markup matches the first
-  // client render (avoids hydration mismatch); the stored choice is applied
-  // in the effect below.
+export function LangProvider({
+  children,
+  content,
+}: {
+  children: ReactNode;
+  content: ContentBundle;
+}) {
+  // Start as "en" so the server-rendered markup matches the first client
+  // render (avoids hydration mismatch); the stored choice is applied below.
   const [lang, setLangState] = useState<Lang>("en");
 
   useEffect(() => {
@@ -44,7 +51,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
   const toggle = () => setLang(lang === "en" ? "mr" : "en");
 
   return (
-    <LangContext.Provider value={{ lang, setLang, toggle }}>
+    <LangContext.Provider value={{ lang, setLang, toggle, content }}>
       {children}
     </LangContext.Provider>
   );
@@ -58,6 +65,6 @@ export function useLang(): LangContextValue {
 
 /** Returns the active language's content tree. */
 export function useContent(): Content {
-  const { lang } = useLang();
-  return CONTENT[lang];
+  const { content, lang } = useLang();
+  return content[lang];
 }
