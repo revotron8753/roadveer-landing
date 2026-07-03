@@ -82,7 +82,9 @@
       "Bash(cp \"ChatGPT Image Jun 28, 2026, 03_19_58 AM.png\" v2-roadsafety.png)",
       "Bash(python -c ' *)",
       "Bash(node -e \"const b=require\\('fs'\\).readFileSync\\('v2-maharashtra.png'\\);console.log\\('color_type',b[25]\\)\")",
-      "Bash(cp v2-cta.png ../../../AppData/Local/Temp/claude/c--Users-anshu-roadveer/773aa781-a2d6-46c1-8191-7214d0dff7bb/scratchpad/v2-cta-original.png)"
+      "Bash(cp v2-cta.png ../../../AppData/Local/Temp/claude/c--Users-anshu-roadveer/773aa781-a2d6-46c1-8191-7214d0dff7bb/scratchpad/v2-cta-original.png)",
+      "Bash(npx next *)",
+      "Bash(npx eslint *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\anshu\\roadveer\\public\\New folder\\Images"
