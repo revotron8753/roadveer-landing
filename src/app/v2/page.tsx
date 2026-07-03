@@ -52,16 +52,16 @@ const founders = [
     name: "Shri Tanaji Bhau Jadhav",
     photo: "/tanaji-jadhav.jpeg",
     paras: [
-      "A leader who has spent years on India's highways understanding the challenges of drivers and communities.",
-      "His vision: a structured highway movement of opportunity, dignity and safety.",
+      "A dynamic organiser scaling this vision through technology, partnerships and people.",
+      "Together, building a safer, more prosperous Highway Economy for India.",
     ],
   },
   {
     name: "Shri Farukh Yelapure",
     photo: "/Farukh.jpeg",
     paras: [
-      "A dynamic organiser scaling this vision through technology, partnerships and people.",
-      "Together, building a safer, more prosperous Highway Economy for India.",
+      "A leader who has spent years on India's highways understanding the challenges of drivers and communities.",
+      "His vision: a structured highway movement of opportunity, dignity and safety.",
     ],
   },
 ];
