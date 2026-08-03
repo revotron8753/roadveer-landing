@@ -40,8 +40,8 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt={t.logoAlt}
-                width={1891}
-                height={832}
+                width={632}
+                height={632}
                 className="foot-logo-img"
               />
             </div>

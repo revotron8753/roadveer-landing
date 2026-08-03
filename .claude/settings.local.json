@@ -84,7 +84,14 @@
       "Bash(node -e \"const b=require\\('fs'\\).readFileSync\\('v2-maharashtra.png'\\);console.log\\('color_type',b[25]\\)\")",
       "Bash(cp v2-cta.png ../../../AppData/Local/Temp/claude/c--Users-anshu-roadveer/773aa781-a2d6-46c1-8191-7214d0dff7bb/scratchpad/v2-cta-original.png)",
       "Bash(npx next *)",
-      "Bash(npx eslint *)"
+      "Bash(npx eslint *)",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\('logo.png'\\); print\\('size:', im.size\\)\")",
+      "Bash(node -e \"const s=require\\('fs'\\).statSync\\('logo.png'\\); const b=require\\('fs'\\).readFileSync\\('logo.png'\\); const w=b.readUInt32BE\\(16\\), h=b.readUInt32BE\\(20\\); console.log\\('PNG size:', w+'x'+h\\)\")",
+      "Bash(node -e \"try{require.resolve\\('sharp'\\);console.log\\('sharp OK'\\)}catch\\(e\\){console.log\\('no sharp'\\)}\")",
+      "Bash(cp public/logo.png __TRACKED_VAR__/logo-original-backup.png)",
+      "Bash(node -e \"const b=require\\('fs'\\).readFileSync\\(process.env.TMPDIR+'/logo-original-backup.png'\\);console.log\\('backup dims:', b.readUInt32BE\\(16\\)+'x'+b.readUInt32BE\\(20\\)\\)\")",
+      "Bash(cp public/logo.png \"C:/Users/anshu/AppData/Local/Temp/claude/c--Users-anshu-roadveer/206b40af-1b52-4261-909e-13a83b2d7bff/scratchpad/logo-trimmed.png\"; find /c/Users/anshu/AppData/Local/Temp/claude -iname \"logo-original-backup.png\" 2>/dev/null | head; echo \"done\")",
+      "Read(//c/Users/anshu/AppData/Local/Temp/claude/**)"
     ],
     "additionalDirectories": [
       "C:\\Users\\anshu\\roadveer\\public\\New folder\\Images"

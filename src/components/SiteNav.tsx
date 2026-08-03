@@ -40,8 +40,8 @@ export default function SiteNav() {
             <Image
               src="/logo.png"
               alt={t.nav.logoAlt}
-              width={1891}
-              height={832}
+              width={632}
+              height={632}
               priority
               className="nv-logo"
             />
