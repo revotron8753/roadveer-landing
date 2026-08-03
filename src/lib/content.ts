@@ -261,7 +261,7 @@ const en = {
       "The state-level coordination body driving Tiger Roadveer's Maharashtra rollout — RTR networks, district participation, emergency response and driver-welfare delivery on the ground.",
     stats: [
       { n: "36", t: "Districts" },
-      { n: "358", t: "Talukas" },
+      { n: "359", t: "Talukas" },
       { n: "1,00,000", t: "RTR Target" },
       { n: "Tiger Group", t: "Ground Network" },
     ],
@@ -880,7 +880,7 @@ const mr: Content = {
       "Tiger Roadveer च्या महाराष्ट्र अंमलबजावणीला चालना देणारी राज्यस्तरीय समन्वय संस्था — RTR नेटवर्क, जिल्हा सहभाग, आपत्कालीन प्रतिसाद आणि जमिनीवर ड्रायव्हर-कल्याण पोहोच.",
     stats: [
       { n: "36", t: "जिल्हे" },
-      { n: "358", t: "तालुके" },
+      { n: "359", t: "तालुके" },
       { n: "1,00,000", t: "RTR लक्ष्य" },
       { n: "Tiger Group", t: "ग्राउंड नेटवर्क" },
     ],

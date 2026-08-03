@@ -148,7 +148,7 @@ const dict = {
       mhP: "We are starting in Maharashtra to build a strong foundation and a scalable model for the entire country.",
       mhStats: [
         { b: "36", s: "Districts" },
-        { b: "358", s: "Talukas" },
+        { b: "359", s: "Talukas" },
         { b: "1 Lakh", s: "Rakshaks (Phase 1)" },
       ],
     },
@@ -305,7 +305,7 @@ const dict = {
       mhP: "संपूर्ण देशासाठी एक भक्कम पाया आणि विस्तारक्षम मॉडेल तयार करण्यासाठी आम्ही महाराष्ट्रापासून सुरुवात करत आहोत.",
       mhStats: [
         { b: "36", s: "जिल्हे" },
-        { b: "358", s: "तालुके" },
+        { b: "359", s: "तालुके" },
         { b: "1 लाख", s: "रक्षक (टप्पा 1)" },
       ],
     },
