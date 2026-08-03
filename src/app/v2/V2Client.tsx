@@ -395,7 +395,7 @@ export default function V2Client() {
             <span className="tv-brand-tx">
               <b>TIGER <span>ROADVEER</span></b>
               <i>WELFARE FOUNDATION</i>
-              <em>Seva · Kamal · Suraksha</em>
+              <em>Seva · Kamai · Suraksha</em>
             </span>
           </a>
           <nav className="tv-nav">
