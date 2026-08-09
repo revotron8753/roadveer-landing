@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.join(__dirname),
   },
+  // Serve the policy PDFs at clean URLs. Rewrites mask the destination, so the
+  // address bar keeps /privacy-policy and /terms while the PDF is served.
+  async rewrites() {
+    return [
+      { source: "/privacy-policy", destination: "/privacy-policy.pdf" },
+      { source: "/terms", destination: "/terms.pdf" },
+    ];
+  },
 };
 
 export default nextConfig;

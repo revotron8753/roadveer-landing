@@ -37,7 +37,7 @@ const stepIcons = [I.userPlus, I.book, I.heart, I.flag, I.star];
 const impactIcons = [I.shieldUser, I.wheel, I.badge, I.ambulance, I.hospital, I.chart];
 const founderPhotos = ["/tanaji-jadhav.jpeg", "/Farukh.jpeg"];
 const missionImgs = [
-  "/v2-roadsafety.png", "/v2-education.png", "/driver-first-ecosystem.png", "/v2-mechanic.jpg",
+  "/v2-roadsafety.png", "/v2-education.png", "/v2-ai.png", "/v2-mechanic.jpg",
   "/v2-employment.png", "/v2-agriculture.png", "/v2-mobility.png", "/v2-community.png",
 ];
 
@@ -199,6 +199,8 @@ const dict = {
     footer: {
       copy: "© 2025 Tiger RoadVeer Welfare Foundation. All rights reserved.",
       made: ["Made with ", " for India’s Highway Economy"],
+      privacy: "Privacy Policy",
+      terms: "Terms & Conditions",
     },
   },
 
@@ -252,7 +254,7 @@ const dict = {
       {
         name: "श्री फारुख येलापुरे",
         paras: [
-          "भारताच्या महामार्गांवर वर्षानुवर्षे राहून ड्रायव्हर आणि समुदायांच्या आव्हानांना समजून घेतलेले नेते.",
+          "भारताच्या महामार्गांवर वर्षानुवर्षे राहून ड्रायव्हर आणि समुदायांच्या आव्हानांना समजून घेतलेले समाजसेवक.",
           "त्यांचे स्वप्न: संधी, प्रतिष्ठा आणि सुरक्षेची एक सुसंघटित महामार्ग चळवळ.",
         ],
       },
@@ -292,7 +294,7 @@ const dict = {
     },
     rak: {
       h2: "टायगर रोडवीर रक्षक व्हा",
-      p: "रक्षक हा समुदाय नेता, स्वयंसेवक, डिजिटल दूत, सुरक्षा दूत आणि परिवर्तन घडवणारा असतो.",
+      p: "रक्षक हा समाजसेवक, स्वयंसेवक, डिजिटल दूत, सुरक्षा दूत आणि परिवर्तन घडवणारा असतो.",
       steps: [
         { b: "सामील व्हा", s: "चळवळीत" },
         { b: "शिका", s: "नवीन कौशल्ये" },
@@ -356,6 +358,8 @@ const dict = {
     footer: {
       copy: "© 2025 टायगर रोडवीर वेल्फेअर फाउंडेशन. सर्व हक्क राखीव.",
       made: ["भारताच्या हायवे अर्थव्यवस्थेसाठी ", " ने बनवले"],
+      privacy: "गोपनीयता धोरण",
+      terms: "नियम व अटी",
     },
   },
 } as const;
@@ -704,6 +708,10 @@ export default function V2Client() {
       <footer className="tv-foot">
         <div className="tv-wrap tv-foot-in">
           <span>{t.footer.copy}</span>
+          <nav className="tv-foot-links">
+            <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">{t.footer.privacy}</a>
+            <a href="/terms" target="_blank" rel="noopener noreferrer">{t.footer.terms}</a>
+          </nav>
           <span>{t.footer.made[0]}<span className="heart">♥</span>{t.footer.made[1]}</span>
         </div>
       </footer>

@@ -1,43 +1,13 @@
-import { LangProvider } from "@/lib/i18n";
-import { getContent } from "@/sanity/getContent";
-import { getPosts } from "@/sanity/blog";
-import SiteNav from "@/components/SiteNav";
-import Hero from "@/components/Hero";
-import GovtStrip from "@/components/GovtStrip";
-import About from "@/components/About";
-import CoFounder from "@/components/CoFounder";
-import Founder from "@/components/Founder";
-import RTR from "@/components/RTR";
-import MaharashtraStrategy from "@/components/MaharashtraStrategy";
-import Economy from "@/components/Economy";
-import Emergency from "@/components/Emergency";
-import RoadSafety from "@/components/RoadSafety";
-import Vendor from "@/components/Vendor";
-import MissionBand from "@/components/MissionBand";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import BlogStrip from "@/components/BlogStrip";
+import type { Metadata } from "next";
+import "./v2.css";
+import V2Client from "./V2Client";
 
-export default async function Home() {
-  const [content, posts] = await Promise.all([getContent(), getPosts(3)]);
-  return (
-    <LangProvider content={content}>
-      <SiteNav />
-      <Hero />
-      <GovtStrip />
-      <About />
-      <CoFounder />
-      <Founder />
-      <RTR />
-      <MaharashtraStrategy />
-      <Economy />
-      <Emergency />
-      <RoadSafety />
-      <Vendor />
-      <BlogStrip posts={posts} />
-      <MissionBand />
-      <Contact />
-      <Footer />
-    </LangProvider>
-  );
+export const metadata: Metadata = {
+  title: "Tiger RoadVeer Welfare Foundation — Building India's Highway Economy",
+  description:
+    "A people-powered movement empowering drivers, mechanics, farmers, women, youth and entrepreneurs through Seva, Kamai and Suraksha.",
+};
+
+export default function Home() {
+  return <V2Client />;
 }

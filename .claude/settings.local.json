@@ -91,7 +91,11 @@
       "Bash(cp public/logo.png __TRACKED_VAR__/logo-original-backup.png)",
       "Bash(node -e \"const b=require\\('fs'\\).readFileSync\\(process.env.TMPDIR+'/logo-original-backup.png'\\);console.log\\('backup dims:', b.readUInt32BE\\(16\\)+'x'+b.readUInt32BE\\(20\\)\\)\")",
       "Bash(cp public/logo.png \"C:/Users/anshu/AppData/Local/Temp/claude/c--Users-anshu-roadveer/206b40af-1b52-4261-909e-13a83b2d7bff/scratchpad/logo-trimmed.png\"; find /c/Users/anshu/AppData/Local/Temp/claude -iname \"logo-original-backup.png\" 2>/dev/null | head; echo \"done\")",
-      "Read(//c/Users/anshu/AppData/Local/Temp/claude/**)"
+      "Read(//c/Users/anshu/AppData/Local/Temp/claude/**)",
+      "Bash(git mv *)",
+      "Bash(git rm *)",
+      "Bash(mv \"public/Privacy Policy - Tiger Roadveer Welfare Foundation - 08_08_2026.pdf\" public/privacy-policy.pdf)",
+      "Bash(mv \"public/T&C - Tiger Roadveer Welfare Foundation 08_08_2026.pdf\" public/terms.pdf)"
     ],
     "additionalDirectories": [
       "C:\\Users\\anshu\\roadveer\\public\\New folder\\Images"
