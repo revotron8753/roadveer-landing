@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/privacy-policy", destination: "/privacy-policy.pdf" },
       { source: "/terms", destination: "/terms.pdf" },
+      // QR landing page (static HTML in /public) served at a clean URL.
+      { source: "/qr-app", destination: "/qr-app.html" },
     ];
   },
 };
