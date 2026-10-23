@@ -95,7 +95,11 @@
       "Bash(git mv *)",
       "Bash(git rm *)",
       "Bash(mv \"public/Privacy Policy - Tiger Roadveer Welfare Foundation - 08_08_2026.pdf\" public/privacy-policy.pdf)",
-      "Bash(mv \"public/T&C - Tiger Roadveer Welfare Foundation 08_08_2026.pdf\" public/terms.pdf)"
+      "Bash(mv \"public/T&C - Tiger Roadveer Welfare Foundation 08_08_2026.pdf\" public/terms.pdf)",
+      "Bash(python3 -c \"import PIL;print\\(PIL.__version__\\)\")",
+      "Bash(python3 -m venv scratchpad/v -q)",
+      "Bash(scratchpad/v/bin/pip install *)",
+      "Bash(file images/*)"
     ],
     "additionalDirectories": [
       "C:\\Users\\anshu\\roadveer\\public\\New folder\\Images"
